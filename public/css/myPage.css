@@ -3,6 +3,14 @@ img {
 	border-radius:10px;
 }
 
+sub {
+	color:yellow;
+}
+
+.degrees {
+	transform: rotate(180deg);
+}
+
 #fixedheader {
 	position: fixed;
 	background-color: #2b3e50;
@@ -20,6 +28,3 @@ img {
 	padding-right: 10px;
 }
 
-.degrees {
-	transform: rotate(180deg);
-}
