@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Register</title>
+	<style>
+	#container {
+		width:400px;
+		border:2px solid black;
+		text-align:center;
+		margin:auto;
+		background-color:blue;
+	}
+
+	h1 {
+		text-decoration:underline;
+	}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<h1>Registration</h1>
+		<a href="login.html">Click here if you already have an account</a>
+		<hr>
+		<form method="post" action="">
+			<label><h2>Name</h2><br><input required name="name" autofocus="autofocus" type="text"></label><br>
+			<label><h2>E-mail</h2><br><input required name="email" type="text"></label><br>
+			<label><h2>Password</h2><br><input required name="password" type="password"></label><br>
+			<label><h2>Password confirm</h2><br><input required name="confirm" type="password"></label><br>
+		<p>
+			<label><input checked type="checkbox" name="newsletterSignup?" value="yes">Sign up for newsletter?</label><br>
+		</p>
+		<p>
+			<Button>Register Now</Button>
+		</p>
+		</form>
+	</div>
+
+</body>
+</html>

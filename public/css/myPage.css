@@ -1,0 +1,27 @@
+img {
+	width:100%;
+	border-radius:10px;
+}
+
+small {color:yellow;}
+
+#fixedheader {
+	position: fixed;
+	background-color: #2b3e50;
+	z-index:1;
+	width:100%;
+}
+
+#contentarea {
+	position:relative;
+	padding-top: 140px;
+}
+
+#quotePadding {
+	padding-left:10px;
+	padding-right: 10px;
+}
+
+.degrees {
+	transform: rotate(180deg);
+}

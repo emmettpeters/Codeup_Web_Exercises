@@ -1,0 +1,94 @@
+.fancy-header {
+    color: blue;
+    text-decoration: underline;
+    margin-top: 8px;
+}
+
+.picsinsquare {
+			width: 49%;
+}
+
+.summary {
+	text-align:center;
+	padding-bottom: 20px;
+}
+
+#entirebody {
+	background-image: url("../imgs/chinasun.png");
+	background-size: 100%;
+	background-height
+	background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin:0px;
+}
+
+h1, #header-motto {
+	text-align: center;
+}
+
+table {
+	margin:auto;
+}
+
+h1 {
+	margin-top: 0px;
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+h2 {
+	color:blue;
+	text-decoration: underline;
+	margin:0px;
+}
+
+ul {
+	list-style-type: square;
+}
+
+#headerbox {
+	background-image: url("../imgs/header922.jpeg")
+	background-size:100%;
+	width: 100%;
+	height:100px;
+	background-color: white;
+	/*float:left;*/
+	position:fixed;
+	font-family: 'Mogra', cursive;
+	border-bottom: 2px solid black;
+
+}
+
+.info {
+	clear: left;
+	padding-top:110px;
+}
+
+table, th, td {
+   border: 1px solid black;
+   background-color:white;
+}
+
+a:link {
+    color:blue;
+}
+
+/* visited link (:visited) */
+a:visited {
+    color:green;
+}
+
+/* mouse hover over link (:hover) */
+a:hover {
+    color:orange;
+}
+
+/* active/selected link (:active) */
+a:active {
+    color:yellow
+}
+
+
+
+
+

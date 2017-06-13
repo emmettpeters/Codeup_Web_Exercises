@@ -1,0 +1,60 @@
+.box {
+	color: white;
+	border: 1px solid black;
+	width: 50px;
+	height: 50px;
+	padding: 10px;
+	font-weight: bold;
+	margin: 25px;
+	float:left;
+	
+}
+
+img {
+	position: relative;
+	top:-80px;
+	right:-40px;
+}
+
+#box-red {
+	background-color: red;
+	/*float: left;*/
+	
+}
+
+#box-orange {
+	background-color: orange;
+	/*clear: both;*/
+	float: right;
+	
+}
+
+#box-yellow {
+	background-color: yellow;
+	/*float: right;*/
+	clear:left;
+	
+}
+
+#box-green {
+	background-color: green;
+	/*float: left;*/
+	float: right;
+	
+}
+
+#box-blue {
+	background-color: blue;
+	/*clear: both;*/
+	clear:left;
+}
+
+#box-purple {
+	background-color: violet;
+	/*float: right;*/
+	float: right;
+
+}
+
+h1 {color: violet;
+	text-decoration: underline;}

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>From Practice</title>
+	<style>
+	#container, #container2 {
+		text-align:center;
+		margin:auto;
+		border:2px solid black;
+		width:400px;
+	}
+
+	#container2 {
+		margin-top: 10px
+	}
+
+	#form1 {
+		text-align:center;
+	}
+
+	#selling {
+		color:#FF0000;
+	}
+
+	#txtbox {
+		width:90%;
+	}
+
+	</style>
+</head>
+<body>
+	<main id="form1">
+		<div id="container">
+			<h2>Beridian Dynamics Registration</h2>
+			<form method="post" action="https://requestb.in/tl8h6etl">
+				<p>
+					<label>Username<input type="text" name="username" placeholder="username"></label><br>
+					<label><input type="password" name="password" placeholder="password">Password</label>
+				</p>
+					<label>Your Bio<br><textarea name="about_me" placeholder="about me"></textarea></label>
+				</p>
+				<h4>How did you hear about us?</h4>
+					<label><input type="checkbox" name="cb1" value="megaphone">megaphone advertising</label><br>
+					<label><input type="checkbox" name="cb1" value="blimp">blimp</label><br>
+					<label><input type="checkbox" name="cb1" value="womensBasketball">advert in womens basketball game</label>
+				<br>
+				<p><h4>WHAT BROWSER ARE YOU USING?!?!?!</h4>
+						<label><input type="radio" name="browser" value="1">None</label><br>
+						<label><input type="radio" name="browser" value ="2">Ya</label><br>
+						<label><input type="radio" name="browser" value ="3" selected>Bizniss</label><br>
+						<label><input type="radio" name="browser" value ="4">Other</label><br>
+				</p>
+				<p>
+					<button>Login</button>
+				</p>
+				<p>
+					<a href="technology.html">Go to Beridian home page</a>
+				</p>
+			</form>
+		</div>
+	</main>
+	<div id="container2">
+	<p id="selling">Now selling pizzas!!</p>
+		<h2>Pizza Delivery</h2>
+		<form method="post" action="https://requestb.in/tl8h6etl">
+			<h3>Pizza size</h3>
+			<select name="size">
+				<option value="small">Small</option>
+				<option value="medium">medium</option>
+				<option selected value="large">large</option>
+			</select>
+			<h3>Crust</h3>
+			<select name="crust">
+				<option value="thin">thin</option>
+				<option value="medium">medium</option>
+				<option selected value="thick">thick</option>
+			</select>
+			<h3>Sauce</h3>
+			<select name="sauce">
+				<option value="small">marinara</option>
+				<option value="medium">alfredo</option>
+				<option selected value="large">apple</option>
+			</select>
+			<h3>Toppings</h3>
+				<label><input type="checkbox" name="toppings" value="broken glass">broken glass</label><br>
+				<label><input type="checkbox" name="toppings" value="anchovies">anchovies</label><br>
+				<label><input type="checkbox" name="toppings" value="pepper">pepper</label><br>
+				<label><input type="checkbox" name="toppings" value="cardboard">cardboard</label><br>
+				<label><input type="checkbox" name="toppings" value="an old shoe">an old shoe</label><br>
+				<label><input type="checkbox" name="toppings" value="rubber tires">rubber tires</label><br>
+				<label><input type="checkbox" name="toppings" value="bicycle chain">bicycle chain</label><br>
+				<label><input type="checkbox" name="toppings" value="human fingernails">human fingernails</label><br>
+				<label><input type="checkbox" name="toppings" value="cheese">cheese</label>
+			<h3>INFO</h3>
+				<label>Name<input type="text" name="name" placeholder="YOUR NAME HERE"></label><br>
+				<label>Address<input type="text" name="address" placeholder="YOUR ADDRESS HERE"></label><br>
+			<h3>Delivery Instructions</h3>
+			<textarea id="txtbox" name="instructions" placeholder="Delivery Instructions"></textarea><br>
+			<button>Place Order</button>
+			<br>
+			<label><input type="checkbox" name="rememberme?" value="yes" checked>Remember your information for later?</label>
+
+
+
+
+
+
+		</form>
+	</div>
+</body>
+</html>

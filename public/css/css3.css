@@ -1,0 +1,32 @@
+body {
+	margin: 0px;
+	padding: 0px;
+	font-family: 'Trebuchet MS',verdana;
+}
+
+table {
+	width:100%;
+	padding:10px;
+	margin:0;
+	 border:0;
+}
+
+td.td1{
+	text-align: center;
+	padding-top:5px;
+	width:20%;
+	background-color:#999f8e;
+	vertical-align: top;
+}
+
+td.td2{
+	padding-top:0;
+	padding-left: 5px;
+	width:80%;
+	background-color:#d2d8c7;
+	vertical-align: top;
+}
+
+table {
+	min-height: 500px;
+}
