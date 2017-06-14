@@ -28,3 +28,8 @@ sub {
 	padding-right: 10px;
 }
 
+.thumbnail img {
+ 	min-height:240px; 
+ 	height:240px;
+ 	max-width: 260px;
+ }
