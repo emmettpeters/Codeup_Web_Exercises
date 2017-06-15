@@ -1,10 +1,14 @@
-img {
+img {max-height: 200px;
 	width:100%;
 	border-radius:10px;
 }
 
 sub {
 	color:yellow;
+}
+
+div.heightMax {
+	height: 460px;
 }
 
 .degrees {
@@ -28,8 +32,3 @@ sub {
 	padding-right: 10px;
 }
 
-.thumbnail img {
- 	min-height:240px; 
- 	height:240px;
- 	max-width: 260px;
- }
