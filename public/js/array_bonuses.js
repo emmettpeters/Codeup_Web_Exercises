@@ -52,69 +52,69 @@
 //Extra bonus: add Kelvin.
 
 
-// var temps = []
+var temps = []
 
-// do {
+do {
 
-// 	var tempToAdd = prompt('Temperature to convert = ');
+	var tempToAdd = prompt('Temperature to convert = ');
 
-// 	temps.push(tempToAdd)
+	temps.push(tempToAdd)
 
-// 	console.log(temps)
+	console.log(temps)
 
-// 	var anotherTemp = confirm("Would you like to add another temp?")
+	var anotherTemp = confirm("Would you like to add another temp?")
 
-// } while ( anotherTemp == true )
+} while ( anotherTemp == true )
 
-// do {
+do {
 
-// 	var conversionType = prompt('What type of conversion are we going to do today? \
-// 		(ONLY TYPE IN THE NUMBER OF THE OPTION YOU WISH TO SELECT)\
-// 		1. Fahrenheit to Celsius \
-// 		2. Fahrenheit to Kelvin \
-// 		3. Celsius to Fahrenheit \
-// 		4. Celsius to Kelvin \
-// 		5. Kelvin to Fahrenheit \
-// 		6. Kelvin to Celsuis')
+	var conversionType = prompt("What type of conversion are we going to do today? \
+		(ONLY TYPE IN THE NUMBER OF THE OPTION YOU WISH TO SELECT)\
+		1. Fahrenheit to Celsius \
+		2. Fahrenheit to Kelvin \
+		3. Celsius to Fahrenheit \
+		4. Celsius to Kelvin \
+		5. Kelvin to Fahrenheit \
+		6. Kelvin to Celsuis");
 
-// 		switch (conversionType) {
-// 		case "1":
-// 		temps.forEach(function(element) {
-// 			alert(element + " degrees Fahrenheit is " + (element-32)*5/9 + " degrees Celsius");
-// 		})
-// 		break;
-// 		case "2":
-// 		temps.forEach(function(element) {
-// 			alert(element + " degrees Fahrenheit is " + ((element-32)*5/9)+273 + " degrees Kelvin");
-// 		})
-// 		break;
-// 		case "3":
-// 		temps.forEach(function(element) {
-// 			alert(element + " degrees Celsius is " + (element*1.8)+32 + " degrees Fahrenheit");
-// 		})
-// 		break;
-// 		case "4":
-// 		temps.forEach(function(element) {
-// 			alert(element + " degrees Celsius is " + (element)+273 + " degrees Kelvin");
-// 		})
-// 		break;
-// 		case "5":
-// 		temps.forEach(function(element) {
-// 			alert(element + " degrees Kelvin is " + 1.8*(element-273)+32 + " degrees Fahrenheit");
-// 		})
-// 		break;
-// 		case "6":
-// 		temps.forEach(function(element) {
-// 			alert(element + " degrees Kelvin is " + (element)-273 + " degrees Celsius");
-// 		})
-// 		break;
-// 		default:
-// 		console.log('You are terrible at following directions');
-// 		break;
-// 	}
+		switch (conversionType) {
+		case "1":
+		temps.forEach(function(element) {
+			alert(element + " degrees Fahrenheit is " + (element-32)*5/9 + " degrees Celsius");
+		})
+		break;
+		case "2":
+		temps.forEach(function(element) {
+			alert(element + " degrees Fahrenheit is " + ((element-32)*5/9)+273 + " degrees Kelvin");
+		})
+		break;
+		case "3":
+		temps.forEach(function(element) {
+			alert(element + " degrees Celsius is " + (element*1.8)+32 + " degrees Fahrenheit");
+		})
+		break;
+		case "4":
+		temps.forEach(function(element) {
+			alert(element + " degrees Celsius is " + (element)+273 + " degrees Kelvin");
+		})
+		break;
+		case "5":
+		temps.forEach(function(element) {
+			alert(element + " degrees Kelvin is " + 1.8*(element-273)+32 + " degrees Fahrenheit");
+		})
+		break;
+		case "6":
+		temps.forEach(function(element) {
+			alert(element + " degrees Kelvin is " + (element)-273 + " degrees Celsius");
+		})
+		break;
+		default:
+		console.log('You are terrible at following directions');
+		break;
+	}
 
-// 		var again = confirm("do more calculations on the same temperatures?")
-// } while (again == true)
+		var again = confirm("do more calculations on the same temperatures?")
+} while (again == true)
 
 
 
