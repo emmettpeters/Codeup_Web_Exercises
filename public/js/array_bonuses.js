@@ -1,43 +1,9 @@
 (function(){
     "use strict";
 
-   var names = ['steve','chevy','dan','john']
-   		// names[0] = steve;
-   		// names[1] = chevy;
-   		// names[2] = dan;
-     //    names[3] = jon;
+// FIRST BONUS FIRST BONUS FIRST BONUS FIRST BONUS FIRST BONUS FIRST BONUS FIRST BONUS FIRST BONUS FIRST BONUS 
+// FIRST BONUS FIRST BONUS FIRST BONUS FIRST BONUS FIRST BONUS FIRST BONUS FIRST BONUS FIRST BONUS FIRST BONUS 
 
-        // console.log(names)
-
-        for (var i=0; i < names.length; ++i) {
-    		console.log(names[i])
-    	}
-
-    	names.forEach(function(element, index, array){
-    		console.log("shape at index " + index + " is " + element)
-    	})
-
-
-
-
-
-    // TODO: Create an array of 4 people's names using literal array notation, in a variable called 'names'.
-
-		console.log(names.length)
-
-
-    // TODO: Create a log statement that will log the number of elements in the names array.
-
-    	// console.log(names[0])
-    	// console.log(names[1])
-    	// console.log(names[2])
-    	// console.log(names[3])
-
-    	
-
-
-
-    // TODO: Create log statements that will print each of the names array elements individually.
 // do {
 
 // 	do {    
@@ -68,6 +34,10 @@
 // 	  	var confirmation = confirm('want to play again?')
 
 //   } while (confirmation=true)
+
+//SECOND BONUS SECOND BONUS SECOND BONUS SECOND BONUS SECOND BONUS SECOND BONUS SECOND BONUS SECOND BONUS SECOND BONUS 
+//SECOND BONUS SECOND BONUS SECOND BONUS SECOND BONUS SECOND BONUS SECOND BONUS SECOND BONUS SECOND BONUS SECOND BONUS 
+
 
 
 
