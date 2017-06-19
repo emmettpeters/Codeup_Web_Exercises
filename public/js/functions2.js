@@ -1,5 +1,6 @@
 "use strict";
 
+
 var input = "hello dood"
 function identity(input) {
 	return input
