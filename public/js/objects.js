@@ -52,21 +52,21 @@
 
 
 
-    var shoppers = [
-        {name: 'Cameron', amount: 180},
-        {name: 'Ryan', amount: 250},
-        {name: 'George', amount: 320}
-    ]; 
+    // var shoppers = [
+    //     {name: 'Cameron', amount: 180},
+    //     {name: 'Ryan', amount: 250},
+    //     {name: 'George', amount: 320}
+    // ]; 
 
-    shoppers.forEach(function(element){
-        if (element.amount < 200) {
-                console.log(element.name + " paid less than 200 dollars and therefore gets no discount. total is " + element.amount)
-            }
-             else {
-                console.log(element.name + " paid more that 200 dollars and therefore got a discount of " + element.amount*.1 + " for a total of " + (element.amount-element.amount*.1)) 
-                //ask about having + and - versus * and divide with respect to parenthesis
-            }
-        })
+    // shoppers.forEach(function(element){
+    //     if (element.amount < 200) {
+    //             console.log(element.name + " paid less than 200 dollars and therefore gets no discount. total is " + element.amount)
+    //         }
+    //          else {
+    //             console.log(element.name + " paid more that 200 dollars and therefore got a discount of " + element.amount*.1 + " for a total of " + (element.amount-element.amount*.1)) 
+    //             //ask about having + and - versus * and divide with respect to parenthesis
+    //         }
+    //     })
 
 // todo:
 // Create an array of objects that represent books.
@@ -74,163 +74,163 @@
 // The author property should be an object with a firstName and lastName.
 // Be creative and add at least 5 books to the array
 // var books = [todo];
-var books = [{
-    "title":"Harry",
-    "author":{
-        "firstName":"Dorothy",
-        "lastName":"Hamill",
-        },    
-    "keywords": ["action","adventure","scifi"],
-    "available": true,
-    "dateAvailable": new Date(),
-    rent: function () {
-        if (this.available == true)
-            {
-            this.available = false;
-            this.dateAvailable.setDate(this.dateAvailable.getDate()+14)
-        } else {
-            alert("Book is currently rented out! Sorry =(")
-        }
-    },
-    return: function () {
-        if (this.available == false)
-            {
-            this.available = true;
-            this.dateAvailable = new Date()
-        } else {
-            alert("You dont have this book to return!!")
-        }
-    },       
-},
-{
-    "title":"Potter",
-    "author":{
-        "firstName":"Russel",
-        "lastName":"Doug",
-        },   
-    "keywords": ["action","fiction","comedy"],
-    "available": true,
-    "dateAvailable": new Date(),
-    rent: function () {
-        if (this.available == true)
-            {
-            this.available = false;
-            this.dateAvailable.setDate(this.dateAvailable.getDate()+14)
-        } else {
-            alert("Book is currently rented out! Sorry =(")
-        }
-    },
-    return: function () {
-        if (this.available == false)
-            {
-            this.available = true;
-            this.dateAvailable = new Date()
-        } else {
-            alert("You dont have this book to return!!")
-        }
-    },
-},
-{
-    "title":"And",
-    "author":{
-        "firstName":"BK",
-        "lastName":"Hakensack",
-        },  
-    "keywords": ["action","comedy","horror"],
-    "available": true,
-    dateAvailable: new Date(),
-    rent: function () {
-        if (this.available == true)
-            {
-            this.available = false;
-            this.dateAvailable.setDate(this.dateAvailable.getDate()+14)
-        } else {
-            alert("Book is currently rented out! Sorry =(")
-        }
-    },
-    return: function () {
-        if (this.available == false)
-            {
-            this.available = true;
-            this.dateAvailable = new Date()
-        } else {
-            alert("You dont have this book to return!!")
-        }
-    },
-},
-{
-    "title":"Chamber",
-    "author":{
-        "firstName":"Lil",
-        "lastName":"Sebastian",
-        },    
-    "keywords": ["action","romantic","horror"],
-    "available": true,
-    "dateAvailable": new Date(),
-    rent: function () {
-        if (this.available == true)
-            {
-            this.available = false;
-            this.dateAvailable.setDate(this.dateAvailable.getDate()+14)
-        } else {
-            alert("Book is currently rented out! Sorry =(")
-        }
-    },
-    return: function () {
-        if (this.available == false)
-            {
-            this.available = true;
-            this.dateAvailable = new Date()
-        } else {
-            alert("You dont have this book to return!!")
-        }
-    },
-},
-{
-    "title":"Secrets",
-    "author":{
-        "firstName":"Ron",
-        "lastName":"Swanson",
-        },    
-    "keywords": ["action","non-fiction","romantic"],
-    "available": true,
-    "dateAvailable": new Date(),
-    rent: function () {
-        if (this.available == true)
-            {
-            this.available = false;
-            this.dateAvailable.setDate(this.dateAvailable.getDate()+14)
-        } else {
-            alert("Book is currently rented out! Sorry =(")
-        }
-    },
-    return: function () {
-        if (this.available == false)
-            {
-            this.available = true;
-            this.dateAvailable = new Date()
-        } else {
-            alert("You dont have this book to return!!")
-        }
-    },
-}]
+// var books = [{
+//     "title":"Harry",
+//     "author":{
+//         "firstName":"Dorothy",
+//         "lastName":"Hamill",
+//         },    
+//     "keywords": ["action","adventure","scifi"],
+//     "available": true,
+//     "dateAvailable": new Date(),
+//     rent: function () {
+//         if (this.available == true)
+//             {
+//             this.available = false;
+//             this.dateAvailable.setDate(this.dateAvailable.getDate()+14)
+//         } else {
+//             alert("Book is currently rented out! Sorry =(")
+//         }
+//     },
+//     return: function () {
+//         if (this.available == false)
+//             {
+//             this.available = true;
+//             this.dateAvailable = new Date()
+//         } else {
+//             alert("You dont have this book to return!!")
+//         }
+//     },       
+// },
+// {
+//     "title":"Potter",
+//     "author":{
+//         "firstName":"Russel",
+//         "lastName":"Doug",
+//         },   
+//     "keywords": ["action","fiction","comedy"],
+//     "available": true,
+//     "dateAvailable": new Date(),
+//     rent: function () {
+//         if (this.available == true)
+//             {
+//             this.available = false;
+//             this.dateAvailable.setDate(this.dateAvailable.getDate()+14)
+//         } else {
+//             alert("Book is currently rented out! Sorry =(")
+//         }
+//     },
+//     return: function () {
+//         if (this.available == false)
+//             {
+//             this.available = true;
+//             this.dateAvailable = new Date()
+//         } else {
+//             alert("You dont have this book to return!!")
+//         }
+//     },
+// },
+// {
+//     "title":"And",
+//     "author":{
+//         "firstName":"BK",
+//         "lastName":"Hakensack",
+//         },  
+//     "keywords": ["action","comedy","horror"],
+//     "available": true,
+//     dateAvailable: new Date(),
+//     rent: function () {
+//         if (this.available == true)
+//             {
+//             this.available = false;
+//             this.dateAvailable.setDate(this.dateAvailable.getDate()+14)
+//         } else {
+//             alert("Book is currently rented out! Sorry =(")
+//         }
+//     },
+//     return: function () {
+//         if (this.available == false)
+//             {
+//             this.available = true;
+//             this.dateAvailable = new Date()
+//         } else {
+//             alert("You dont have this book to return!!")
+//         }
+//     },
+// },
+// {
+//     "title":"Chamber",
+//     "author":{
+//         "firstName":"Lil",
+//         "lastName":"Sebastian",
+//         },    
+//     "keywords": ["action","romantic","horror"],
+//     "available": true,
+//     "dateAvailable": new Date(),
+//     rent: function () {
+//         if (this.available == true)
+//             {
+//             this.available = false;
+//             this.dateAvailable.setDate(this.dateAvailable.getDate()+14)
+//         } else {
+//             alert("Book is currently rented out! Sorry =(")
+//         }
+//     },
+//     return: function () {
+//         if (this.available == false)
+//             {
+//             this.available = true;
+//             this.dateAvailable = new Date()
+//         } else {
+//             alert("You dont have this book to return!!")
+//         }
+//     },
+// },
+// {
+//     "title":"Secrets",
+//     "author":{
+//         "firstName":"Ron",
+//         "lastName":"Swanson",
+//         },    
+//     "keywords": ["action","non-fiction","romantic"],
+//     "available": true,
+//     "dateAvailable": new Date(),
+//     rent: function () {
+//         if (this.available == true)
+//             {
+//             this.available = false;
+//             this.dateAvailable.setDate(this.dateAvailable.getDate()+14)
+//         } else {
+//             alert("Book is currently rented out! Sorry =(")
+//         }
+//     },
+//     return: function () {
+//         if (this.available == false)
+//             {
+//             this.available = true;
+//             this.dateAvailable = new Date()
+//         } else {
+//             alert("You dont have this book to return!!")
+//         }
+//     },
+// }]
 
-// books.forEach(function(){
+// // books.forEach(function(){
 
+// // })
+// // log out the books array
+
+// // todo:
+// // Loop through the array of books using .forEach and print out the specified information about each one.
+// // start loop here
+// books.forEach(function(book, index, array){
+//     console.log("Book #:" + parseInt(index+1));
+//     console.log("Title: " + book.title);
+//     console.log("Author: " + book.author.firstName + " " + book.author.lastName);
+//     console.log("Keywords: " + book.keywords);
+//     console.log("Available?: " + book.available);
+//     console.log("Date Available: " + book.dateAvailable);
 // })
-// log out the books array
-
-// todo:
-// Loop through the array of books using .forEach and print out the specified information about each one.
-// start loop here
-books.forEach(function(book, index, array){
-    console.log("Book #:" + parseInt(index+1));
-    console.log("Title: " + book.title);
-    console.log("Author: " + book.author.firstName + " " + book.author.lastName);
-    console.log("Keywords: " + book.keywords);
-    console.log("Available?: " + book.available);
-    console.log("Date Available: " + book.dateAvailable);
-})
 
 
 // Bonus Exercises for Objects Lesson
@@ -260,24 +260,21 @@ books.forEach(function(book, index, array){
 //     color: "",
 //     steralized: false,
 //     shotRecords: [
-//     {
-//         date: "",
-//         typeOfShot: "",
-//     }
-//     {
-//         date: "",
-//         typeOfShot: "",
-//     }
-//     {
-//         date: "",
-//         typeOfShot: "",
-//     }
+//         {
+//             date: "",
+//             typeOfShot: ""
+//         },
+//         {
+//             date: "",
+//             typeOfShot: ""
+//         }
 //     ],
+
 //     bark: function() {
 //         console.log("Bow Wow!!!")
 //     },
 //     getOlder: function(){
-//         this.age++
+//         dog.age++
 //     },
 //     fix: function(){
 //         if (this.steralized === true) {
@@ -287,23 +284,26 @@ books.forEach(function(book, index, array){
 //         }
 //     },
 //     getShot: function(){
-//         this.shotRecords.date.push(prompt())
-//     }
+//         var shotName = prompt("whats the shot name?")
+//         var shotDate = prompt("whats the shot date?")
+//         var newShot = { date: shotDate, typeOfShot: shotName }
+//         dog.shotRecords.push(newShot)
+//     },
 // }
 
-//     The dog object should have properties for: 
-//         breed (string), 
-//         weightInPounds (number),
-//         age (number), 
-//         color (string), 
-//         steralized (boolean), 
-//         shotRecords (array of objects with properties for date and typeOfShot)
+    // The dog object should have properties for: 
+    //     breed (string), 
+    //     weightInPounds (number),
+    //     age (number), 
+    //     color (string), 
+    //     steralized (boolean), 
+    //     shotRecords (array of objects with properties for date and typeOfShot)
 
-//     The dog object should have methods to:
-//         bark() - will console.log “Woof!”
-//         getOlder() - will increase age by 1
-//         fix() - will set sterile to true
-//         getShot() - takes in an argument for the name of the shot and adds a new shot with the current date to the shotRecords array
+    // The dog object should have methods to:
+    //     bark() - will console.log “Woof!”
+    //     getOlder() - will increase age by 1
+    //     fix() - will set sterile to true
+    //     getShot() - takes in an argument for the name of the shot and adds a new shot with the current date to the shotRecords array
 
 // })();
 
@@ -314,15 +314,36 @@ books.forEach(function(book, index, array){
 // Extra practice at night beginning individual lotto/raffle panes - practice
 // Extra practice at night beginning individual lotto/raffle panes - practice
 
-// var twlIndividual = [
-//     {
-//         indivType: ["char","non"];
-//         indivTimeRemaining: "";
-//         indivImg: "";
-//         indivCPE: "1.00unit";
+var twlGamePanes =[
+    {
+        gpID: "",
+        gpType: ["char","non"],
+        gpTitle:"",
+        gpImg: "",
+        gpCPE: "1.00unit",
+        gpTimeRemaining: "86400",
+        gpTimer: function (){
+           this.gpTimeRemaining--;
+        }  
+    },
+    {
+        gpID: "",
+        gpType: ["char","non"],
+        gpTitle:"",
+        gpImg: "",
+        gpCPE: "1.00unit",
+        gpTimeRemaining: "86400",
+        gpTimer: function (){
+           this.gpTimeRemaining--;
+        }  
+    }]
+    
 
+setInterval(function(){ 
+    twlGamePanes[0].gpTimer();
+    return console.log(twlGamePanes[0].gpTimeRemaining);
+     }, 1000);
 
-//     }
 
 
 
