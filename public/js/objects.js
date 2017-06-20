@@ -1,6 +1,6 @@
-"use strict";
+// "use strict";
 
-(function(){
+// (function(){
     
 
     // var person = {
@@ -91,13 +91,16 @@ var books = [{
         } else {
             alert("Book is currently rented out! Sorry =(")
         }
-        // var currentTime = new Date();
-        // var month = currentTime.getMonth();
-        // var day = currentTime.getDay() + 14;
-        // var year = currentTime.getYear();
-        
     },
-        
+    return: function () {
+        if (this.available == false)
+            {
+            this.available = true;
+            this.dateAvailable = new Date()
+        } else {
+            alert("You dont have this book to return!!")
+        }
+    },       
 },
 {
     "title":"Potter",
@@ -109,14 +112,23 @@ var books = [{
     "available": true,
     "dateAvailable": new Date(),
     rent: function () {
-         this.available = false;
-        // var currentTime = new Date();
-        // var month = currentTime.getMonth();
-        // var day = currentTime.getDay() + 14;
-        // var year = currentTime.getYear();
-        this.dateAvailable = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        if (this.available == true)
+            {
+            this.available = false;
+            this.dateAvailable.setDate(this.dateAvailable.getDate()+14)
+        } else {
+            alert("Book is currently rented out! Sorry =(")
+        }
     },
-        
+    return: function () {
+        if (this.available == false)
+            {
+            this.available = true;
+            this.dateAvailable = new Date()
+        } else {
+            alert("You dont have this book to return!!")
+        }
+    },
 },
 {
     "title":"And",
@@ -128,14 +140,23 @@ var books = [{
     "available": true,
     dateAvailable: new Date(),
     rent: function () {
-         this.available = false;
-        // var currentTime = new Date();
-        // var month = currentTime.getMonth();
-        // var day = currentTime.getDay() + 14;
-        // var year = currentTime.getYear();
-        this.dateAvailable = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        if (this.available == true)
+            {
+            this.available = false;
+            this.dateAvailable.setDate(this.dateAvailable.getDate()+14)
+        } else {
+            alert("Book is currently rented out! Sorry =(")
+        }
     },
-        
+    return: function () {
+        if (this.available == false)
+            {
+            this.available = true;
+            this.dateAvailable = new Date()
+        } else {
+            alert("You dont have this book to return!!")
+        }
+    },
 },
 {
     "title":"Chamber",
@@ -147,14 +168,23 @@ var books = [{
     "available": true,
     "dateAvailable": new Date(),
     rent: function () {
-         this.available = false;
-        // var currentTime = new Date();
-        // var month = currentTime.getMonth();
-        // var day = currentTime.getDay() + 14;
-        // var year = currentTime.getYear();
-        this.dateAvailable = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        if (this.available == true)
+            {
+            this.available = false;
+            this.dateAvailable.setDate(this.dateAvailable.getDate()+14)
+        } else {
+            alert("Book is currently rented out! Sorry =(")
+        }
     },
-        
+    return: function () {
+        if (this.available == false)
+            {
+            this.available = true;
+            this.dateAvailable = new Date()
+        } else {
+            alert("You dont have this book to return!!")
+        }
+    },
 },
 {
     "title":"Secrets",
@@ -166,14 +196,23 @@ var books = [{
     "available": true,
     "dateAvailable": new Date(),
     rent: function () {
-        this.available = false;
-        // var currentTime = new Date();
-        // var month = currentTime.getMonth();
-        // var day = currentTime.getDay() + 14;
-        // var year = currentTime.getYear();
-        this.dateAvailable = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate()+14;
+        if (this.available == true)
+            {
+            this.available = false;
+            this.dateAvailable.setDate(this.dateAvailable.getDate()+14)
+        } else {
+            alert("Book is currently rented out! Sorry =(")
+        }
     },
-        
+    return: function () {
+        if (this.available == false)
+            {
+            this.available = true;
+            this.dateAvailable = new Date()
+        } else {
+            alert("You dont have this book to return!!")
+        }
+    },
 }]
 
 // books.forEach(function(){
@@ -266,7 +305,7 @@ books.forEach(function(book, index, array){
 //         fix() - will set sterile to true
 //         getShot() - takes in an argument for the name of the shot and adds a new shot with the current date to the shotRecords array
 
-})();
+// })();
 
 
 // Extra practice at night beginning individual lotto/raffle panes - practice
