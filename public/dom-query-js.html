@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>DOM: Query and Modify</title>
+</head>
+<body>
+
+<h1 id="main-header">Hello World!</h1>
+<ul>
+    <li data-dbid="1">Item 1</li>
+    <li data-dbid="2">Item 2</li>
+    <li data-dbid="3">Item 3</li>
+    <li data-dbid="4">Item 4</li>
+    <li data-dbid="5">Item 5</li>
+</ul>
+<h2 id="sub-header">Hello Again.</h2>
+<p class="sub-paragraph">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+    ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+    aliquip ex ea commodo consequat. Duis aute irure dolor in
+    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+    culpa qui officia deserunt mollit anim id est laborum.
+</p>
+
+<span><button class="changerButton" id="button-1">Button 1</button></span>
+<span><button class="changerButton" id="button-2">Button 2</button></span>
+<span><button class="changerButton" id="button-3">Button 3</button></span>
+<span><button class="changerButton" id="button-4">Button 4</button></span>
+
+<script>
+    (function() {
+        
+
+        var mainHeader = document.getElementById('main-header');
+        var headerChange = document.getElementById("button-1");
+        headerChange.addEventListener("click",function(){
+            mainHeader.innerHTML ='Javascript is broooo cool!!';
+        });
+
+        var subHeader = document.getElementById('sub-header');
+        var subHeaderChange = document.getElementById("button-2");
+        subHeaderChange.addEventListener("click",function(){
+            subHeader.style.color ="blue";
+        });
+
+         var listItems = document.getElementsByTagName("li");
+         var liChange = document.getElementById("button-3");
+        liChange.addEventListener("click",function(){
+            for (var i=0; i<=4; i += 2) {
+                listItems[i].style.color = "red";
+                var dbId = listItems[i].getAttribute("data-dbid");
+                console.log(dbId);
+                 if (dbId == 1) {
+                    listItems[i].style.color= "blue"
+                 }
+                }
+        });
+
+        var subParagraphs = document.getElementsByClassName("sub-paragraph");
+        var paragraphChange = document.getElementById("button-4");
+        paragraphChange.addEventListener("dblclick",function(){
+            subParagraphs[0].innerHTML = "I did it!! Promotion!!! oooeeeehhhh oooooeeeehhhh!!!"
+        })
+
+
+
+
+
+
+        // "use strict";
+        // // TODO: Uncomment next line and get the main header element by id
+        // var mainHeader = document.getElementById('main-header');
+        // console.log(mainHeader.innerHTML);
+        // // TODO: Set inner html of mainHeader to "JavaScript is Cool"
+
+        // mainHeader.innerHTML ='javascript is cool';
+
+        // // TODO: Uncomment the next line and get the sub header element by id
+        //  var subHeader = document.getElementById('sub-header');
+
+        // // TODO: Set the text color of subHeader to blue
+
+        // subHeader.style.color= 'blue';
+
+        // TODO: Uncomment the next line and get all list items
+        // var listItems = document.getElementsByTagName("li");
+         // console.log(listItems[0]);
+        // TODO: Set text color on every other list item to grey
+        // for (var i=0; i<=4; i += 2) {
+        // listItems[i].style.color = "red";
+        // var dbId = listItems[i].getAttribute("data-dbid");
+        // console.log(dbId);
+        //  if (dbId == 1) {
+        //     listItems[i].style.color= "blue"
+        //  }
+        // }
+
+        // // TODO: Set text color of li with dbid = 1 to blue
+        // // for (var i = 0; i < listItems.length; i++) {
+        // //     var dbId = listItems[i].getAttribute("data-dbid");
+        // //     console.log(dbId);
+        // //     if (dbId === 1) {
+        // //         listItems[1].style.color = "blue"};
+        // // }
+        // // console.log(liOne)
+        // // TODO: Uncomment the next line and get all elements with class name sub-paragraph
+        // var subParagraphs = document.getElementsByClassName("sub-paragraph");
+        // console.log(subParagraphs)
+
+        // subParagraphs[0].innerHTML = "<strong><em>Mission Accomplished!</em></strong>";
+
+        // // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
+    })();
+</script>
+</body>
+</html>
