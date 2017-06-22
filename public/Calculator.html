@@ -8,35 +8,293 @@
 <body>
 <div class="container">
 	<div class="row row2">
-		<div class="col-4 r2col1"></div>
-		<div class="col-4 r2col2"></div>
-		<div class="col-4 r2col3"></div>
+		<div id="areaOne" class="col-4 r2col1"></div>
+		<div id="operation" class="col-4 r2col2"></div>
+		<div id="areaTwo" class="col-4 r2col3"></div>
 	</div>
 	<div class="row">
-		<button class="button col-3">1</button>
-		<button class="button col-3">2</button>
-		<button class="button col-3">3</button>
-		<button class="button col-3">/</button>
+		<button id="sign" class="button col-3">-/+</button>
+		<button id="inverse" class="button col-3">1/x</button>
+		<button id="sqRt" class="button col-3">SQUARE Root</button>
+		<button id="squared" class="button col-3">X^2</button>
 	</div>
 	<div class="row">
-		<button class="button col-3">4</button>
-		<button class="button col-3">5</button>
-		<button class="button col-3">6</button>
-		<button class="button col-3">X</button>
+		<button id="one" class="button col-3">1</button>
+		<button id="two" class="button col-3">2</button>
+		<button id="three" class="button col-3">3</button>
+		<button id="divide" class="button col-3">/</button>
 	</div>
 	<div class="row">
-		<button class="button col-3">7</button>
-		<button class="button col-3">8</button>
-		<button class="button col-3">9</button>
-		<button class="button col-3">+</button>
+		<button id="four" class="button col-3">4</button>
+		<button id="five" class="button col-3">5</button>
+		<button id="six" class="button col-3">6</button>
+		<button id="multiply" class="button col-3">X</button>
 	</div>
 	<div class="row">
-		<button class="button col-3">=</button>
-		<button class="button col-3">0</button>
-		<button class="button col-3">.</button>
-		<button class="button col-3">-</button>
+		<button id="seven" class="button col-3">7</button>
+		<button id="eight" class="button col-3">8</button>
+		<button id="nine" class="button col-3">9</button>
+		<button id="plus" class="button col-3">+</button>
+	</div>
+	<div class="row">
+		<button id="equals" class="button col-3">=</button>
+		<button id="zero" class="button col-3">0</button>
+		<button id="decimal" class="halfButton col-3">.</button>
+		<button id="clear" class="halfButton col-3">C</button>
+		<button id="minus" class="button col-3">-</button>
 	</div>
 </div>
+
+<script type="text/javascript" src="js/Calculator.js"></script>
+<script type="text/javascript">
+
+
+// Three Input Areas!!!  Three Input Areas!!! Three Input Areas!!! Three Input Areas!!! Three Input Areas!!! 
+// Three Input Areas!!! Three Input Areas!!! Three Input Areas!!! Three Input Areas!!! Three Input Areas!!! 
+
+var areaOne = document.getElementById("areaOne");
+areaOne.innerHTML = null;
+console.log(areaOne.innerHTML)
+
+var areaTwo = document.getElementById("areaTwo");
+areaTwo.innerHTML = null;
+console.log(areaTwo.innerHTML)
+
+var areaOp = document.getElementById("operation");
+areaOp	.innerHTML = null;
+console.log(areaOp.innerHTML)
+
+
+	
+// Three Input Areas!!!  Three Input Areas!!! Three Input Areas!!! Three Input Areas!!! Three Input Areas!!! 
+// Three Input Areas!!! Three Input Areas!!! Three Input Areas!!! Three Input Areas!!! Three Input Areas!!! 
+
+//Button Definitions Button Definitions Button Definitions Button Definitions Button Definitions 
+//Button Definitions Button Definitions Button Definitions Button Definitions Button Definitions 
+
+	
+var buttonOne = document.getElementById("one");
+var one = buttonOne.innerHTML;
+
+var buttonTwo = document.getElementById("two");
+var two = buttonTwo.innerHTML;
+
+var buttonThree = document.getElementById("three");
+var three = buttonThree.innerHTML;
+
+var buttonFour = document.getElementById("four");
+var four = buttonFour.innerHTML;
+
+var buttonFive = document.getElementById("five");
+var five = buttonFive.innerHTML;
+
+var buttonSix = document.getElementById("six");
+var six = buttonSix.innerHTML;
+
+var buttonSeven = document.getElementById("seven");
+var seven = buttonSeven.innerHTML;
+
+var buttonEight = document.getElementById("eight");
+var eight = buttonEight.innerHTML;
+
+var buttonNine = document.getElementById("nine");
+var nine = buttonNine.innerHTML;
+
+var buttonDecimal = document.getElementById("decimal");
+var decimal = buttonDecimal.innerHTML;
+
+var buttonDivide = document.getElementById("divide");
+var divide = buttonDivide.innerHTML;
+
+var buttonMultiply = document.getElementById("multiply");
+var multiply = buttonMultiply.innerHTML;
+
+var buttonPlus = document.getElementById("plus");
+var plus = buttonPlus.innerHTML;
+
+var buttonMinus = document.getElementById("minus");
+var minus = buttonMinus.innerHTML;
+
+var buttonEquals = document.getElementById("equals");
+var equals = buttonOne.innerHTML;
+
+var buttonClear = document.getElementById("clear");
+var clear = buttonClear.innerHTML;
+
+var buttonSign = document.getElementById("sign");
+var plus = buttonSign.innerHTML;
+
+var buttonInverse = document.getElementById("inverse");
+var minus = buttonInverse.innerHTML;
+
+var buttonSqRt = document.getElementById("sqRt");
+var equals = buttonSqRt.innerHTML;
+
+var buttonSquared = document.getElementById("squared");
+var clear = buttonSquared.innerHTML;
+
+//Button Definitions Button Definitions Button Definitions Button Definitions Button Definitions 
+//Button Definitions Button Definitions Button Definitions Button Definitions Button Definitions 
+
+//Button Functions Button Functions Button Functions Button Functions Button Functions Button Functions 
+//Button Functions Button Functions Button Functions Button Functions Button Functions Button Functions 
+ 
+	//Number and Decimal Button Function
+	//Number and Decimal Button Function
+
+var buttonIdsNum = [
+		buttonOne,
+		buttonTwo,
+		buttonThree,
+		buttonFour,
+		buttonFive,
+		buttonSix,
+		buttonSeven,
+		buttonEight,
+		buttonNine,
+		];
+
+console.log(buttonIdsNum);
+	
+buttonIdsNum.forEach(function(element, index){
+		element.addEventListener("click", function(){
+			if (areaOp.innerHTML == "") {
+				(areaOne.innerHTML += (index + 1));
+			} else {
+				(areaTwo.innerHTML += (index + 1));
+			}
+		})
+	});
+
+buttonDecimal.addEventListener("click", function(){
+			if (areaOp.innerHTML == "") {
+				(areaOne.innerHTML += ".");
+			} else {
+				(areaTwo.innerHTML += ".");
+			}
+});
+
+	//Number and Decimal Button Function
+	//Number and Decimal Button Function
+
+	//Operation Button Function
+	//Operation Button Function
+
+var buttonIdsOp = [
+		buttonMultiply,
+		buttonDivide,
+		buttonMinus,
+		buttonPlus
+		];
+
+buttonIdsOp.forEach(function(element, index){
+	switch (index){
+		case index=0:
+		element.addEventListener("click",function(){
+		(areaOp.innerHTML = "TIMES")});
+		break;
+		case index=1:
+		element.addEventListener("click",function(){
+		(areaOp.innerHTML = "DIVIDED BY")});
+		break;
+		case index=2:
+		element.addEventListener("click",function(){
+		(areaOp.innerHTML = "MINUS")});
+		break;
+		case index=3:
+		element.addEventListener("click",function(){
+		(areaOp.innerHTML = "PLUS")});
+		break;
+	}
+});
+
+buttonEquals.addEventListener("click",function(){
+	console.log(areaOp.innerHTML);
+	switch (areaOp.innerHTML){
+		case "TIMES":
+		areaOne.innerHTML = (areaOne.innerHTML * areaTwo.innerHTML);
+		areaOp.innerHTML = "";
+		areaTwo.innerHTML = "";
+		break;
+		case "DIVIDED BY":
+		areaOne.innerHTML = (areaOne.innerHTML / areaTwo.innerHTML);
+		areaOp.innerHTML = "";
+		areaTwo.innerHTML = "";
+		break;
+		case "MINUS":
+		areaOne.innerHTML = (areaOne.innerHTML - areaTwo.innerHTML);
+		areaOp.innerHTML = "";
+		areaTwo.innerHTML = "";
+		break;
+		case "PLUS":
+		areaOne.innerHTML = (areaOne.innerHTML + areaTwo.innerHTML);
+		areaOp.innerHTML = "";
+		areaTwo.innerHTML = "";
+		break;
+	}
+});
+
+buttonClear.addEventListener("click",function(){
+	areaOne.innerHTML = "";
+	areaOp.innerHTML = "";
+	areaTwo.innerHTML = "";
+});
+
+	//Operation Button Function
+	//Operation Button Function
+
+	//Single Variable Operations
+	//Single Variable Operations
+
+
+var buttonIdsOpSingle = [
+	buttonSign,
+	buttonInverse,
+	buttonSqRt,
+	buttonSquared
+	];
+
+buttonIdsOpSingle.forEach(function(element, index){
+	switch (index){
+		case index=0:
+		element.addEventListener("click",function(){
+		(areaOne.innerHTML = ((0-1)*areaOne.innerHTML))});
+		break;
+		case index=1:
+		element.addEventListener("click",function(){
+		(areaOne.innerHTML = (1/areaOne.innerHTML))});
+		break;
+		case index=2:
+		element.addEventListener("click",function(){
+		(areaOne.innerHTML = (areaOne.innerHTML/1.41421356237))});
+		break;
+		case index=3:
+		element.addEventListener("click",function(){
+		(areaOne.innerHTML = (areaOne.innerHTML*areaOne.innerHTML))});
+		break;
+	}
+});
+	
+
+
+	//Single Variable Operations
+	//Single Variable Operations
+
+
+//Button Functions Button Functions Button Functions Button Functions Button Functions Button Functions 
+//Button Functions Button Functions Button Functions Button Functions Button Functions Button Functions 
+
+
+
+
+
+
+
+
+
+
+
+</script>
 
 </body>
 </html>
