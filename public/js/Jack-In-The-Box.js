@@ -52,20 +52,6 @@ var jackBox = {
 ////////////////////////////////////////
 
 
-    	// for(var i = 0; i < this.songPlayed.length; i++) 
-    	// {
-    	// 	// console.log(i);
-    	// 	console.log(this.songPlayed[i]);
-    	// 	if (this.triggered == false) 
-    	// 	{
-    	// 		this.triggered = true
-    	// 	}
-    	// };
-			
-	// }, 
-
-
-
 
 // Include properties for...
 //     songPlayed - the song played when using it
@@ -98,6 +84,25 @@ var jackBox = {
 
 
 // BONUS 2: Build a Stop Watch
+
+var stopwatch = {
+    intervalId: null,
+    count: 1,
+    start: (function(){
+        var interval = 1000;
+         stopwatch.intervalId = setInterval(function(){  
+           console.log(stopwatch.count++);
+           return stopwatch.count;         
+        }, interval)
+       
+    }),
+    pause: (function(){
+        clearInterval(stopwatch.intervalId)
+    }),
+    reset: (function(){
+        stopwatch.count = 1;
+    }),
+}
 
 // Define an object called stopWatch.
 
