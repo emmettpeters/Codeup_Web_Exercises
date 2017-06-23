@@ -4,9 +4,10 @@
 	<title>Calculator Practice</title>
 	<link rel="stylesheet" href="css/Calculator.css">
 	<link rel="stylesheet" href="css/bootstrap.css">
+	<audio id="audio" src="imgs/gunshot.mp3" autostart="false" ></audio>
 </head>
-<body>
-<p><h1>My Big Black Calc...</h1></p>
+<body id="body">
+<p><h1><span>My Big Black Calc...<sub>(weaponized)</sub></span></h1></p>
 <hr>
 	<div class="container">
 		<div class="row">
@@ -18,41 +19,52 @@
 			<div id="areaTwo" class="r2col3"></div>
 		</div>
 		<div class="row">
-			<button id="sign" class="button col-3">-/+</button>
-			<button id="inverse" class="button col-3">1/x</button>
-			<button id="sqRt" class="button col-3">SQR Rt.</button>
-			<button id="squared" class="button col-3">X^2</button>
+			<button onclick="playSound();" id="sign" class="oneOps button col-3">-/+</button>
+			<button onclick="playSound();" id="inverse" class="oneOps button col-3">1/x</button>
+			<button onclick="playSound();" id="sqRt" class="oneOps button col-3">SQR Rt.</button>
+			<button onclick="playSound();" id="squared" class="oneOps button col-3">X^2</button>
 		</div>
 		<div class="row">
 			<button id="one" class="button col-3">1</button>
 			<button id="two" class="button col-3">2</button>
 			<button id="three" class="button col-3">3</button>
-			<button id="divide" class="button col-3">/</button>
+			<button onclick="playSound();" onclick="playSound();" id="divide" class="twoOps button col-3">/</button>
 		</div>
 		<div class="row">
 			<button id="four" class="button col-3">4</button>
 			<button id="five" class="button col-3">5</button>
 			<button id="six" class="button col-3">6</button>
-			<button id="multiply" class="button col-3">X</button>
+			<button onclick="playSound();" id="multiply" class="twoOps button col-3">X</button>
 		</div>
 		<div class="row">
 			<button id="seven" class="button col-3">7</button>
 			<button id="eight" class="button col-3">8</button>
 			<button id="nine" class="button col-3">9</button>
-			<button id="plus" class="button col-3">+</button>
+			<button onclick="playSound();" id="plus" class="twoOps button col-3">+</button>
 		</div>
 		<div class="row">
-			<button id="equals" class="halfButton col-3">=</button>
-			<button id="store" class="halfButton col-3">Store</button>
+			<button onclick="playSound();" id="equals" class="oneOps halfButton col-3">=</button>
+			<button onclick="playSound();" id="store" class="oneOps halfButton col-3">Store</button>
 			<button id="zero" class="button col-3">0</button>
 			<button id="decimal" class="halfButton col-3">.</button>
-			<button id="clear" class="halfButton col-3">C</button>
-			<button id="minus" class="button col-3">-</button>
+			<button onclick="playSound();" id="clear" class="halfButton col-3">C</button>
+			<button onclick="playSound();" id="minus" class="twoOps button col-3">-</button>
+		</div>
+		<div class="row">
+			<button onclick="playSound();" id="usLeft" class="oneOps button col-3">US<br>Left</button>
+			<button id="decimal" class="button col-3">unknown</button>
+			<button id="clear" class="button col-3">unknown</button>
+			<button onclick="playSound();" id="usRight" class="oneOps button col-3">US<br>Right</button>
 		</div>
 	</div>
+	
 <script type="text/javascript" src="js/Calculator.js"></script>
 <script type="text/javascript">
 
+function playSound() {
+          var sound = document.getElementById("audio");
+          sound.play();
+      }
 
 // Three Input Areas!!!  Three Input Areas!!! Three Input Areas!!! Three Input Areas!!! Three Input Areas!!! 
 // Three Input Areas!!! Three Input Areas!!! Three Input Areas!!! Three Input Areas!!! Three Input Areas!!! 
@@ -73,7 +85,8 @@ var areaMain = document.getElementById("areaMain");
 
 //Button Definitions Button Definitions Button Definitions Button Definitions Button Definitions 
 //Button Definitions Button Definitions Button Definitions Button Definitions Button Definitions 
-	
+
+var buttonZero = document.getElementById("zero");
 var buttonOne = document.getElementById("one");
 var buttonTwo = document.getElementById("two");
 var buttonThree = document.getElementById("three");
@@ -95,6 +108,9 @@ var buttonInverse = document.getElementById("inverse");
 var buttonSqRt = document.getElementById("sqRt");
 var buttonSquared = document.getElementById("squared");
 var buttonStore = document.getElementById("store");
+var buttonUsLeft = document.getElementById("usLeft");
+var buttonUsRight = document.getElementById("usRight");
+
 
 //Button Definitions Button Definitions Button Definitions Button Definitions 
 //Button Definitions Button Definitions Button Definitions Button Definitions
@@ -106,6 +122,7 @@ var buttonStore = document.getElementById("store");
 	//Number and Decimal Button Function
 
 var buttonIdsNum = [
+		buttonZero,
 		buttonOne,
 		buttonTwo,
 		buttonThree,
@@ -120,18 +137,18 @@ var buttonIdsNum = [
 buttonIdsNum.forEach(function(element, index){
 		element.addEventListener("click", function(){
 			if (areaOp.innerHTML == "") {
-				(areaOne.innerHTML += (index + 1));
+				(areaOne.innerHTML += (index));
 			} else {
-				(areaTwo.innerHTML += (index + 1));
+				(areaTwo.innerHTML += (index));
 			}
-		})
+		});
 	});
 
 buttonDecimal.addEventListener("click", function(){
 			if (areaOp.innerHTML == "") {
-				(areaOne.innerHTML += ".");
+				(areaOne.innerHTML.indexOf(".") < 0) ? (areaOne.innerHTML += ".") : (areaOne.innerHTML = areaOne.innerHTML);
 			} else {
-				(areaTwo.innerHTML += ".");
+				(areaTwo.innerHTML.indexOf(".") < 0) ? (areaTwo.innerHTML += ".") : (areaTwo.innerHTML = areaTwo.innerHTML);
 			}
 });
 
@@ -194,6 +211,20 @@ buttonEquals.addEventListener("click",function(){
 	}
 });
 
+buttonUsLeft.addEventListener("click",function(){
+	if (areaMain.innerHTML != ""){
+	areaOne.innerHTML = areaMain.innerHTML;
+	areaMain.innerHTML = "";}
+});
+
+buttonUsRight.addEventListener("click",function(){
+	if (areaMain.innerHTML != ""){
+	areaTwo.innerHTML = areaMain.innerHTML;
+	areaMain.innerHTML = "";}
+});
+	
+
+
 buttonClear.addEventListener("click",function(){
 	areaOne.innerHTML = "";
 	areaOp.innerHTML = "";
@@ -225,27 +256,43 @@ buttonIdsOpSingle.forEach(function(element, index){
 	switch (index){
 		case index=0:
 		element.addEventListener("click",function(){
-			(areaOne.innerHTML = ((0-1)*areaOne.innerHTML));
+			if (areaOp.innerHTML == "") {
+				(areaOne.innerHTML = ((0-1)*areaOne.innerHTML));
+			} else {
+				(areaTwo.innerHTML = ((0-1)*areaTwo.innerHTML));
+			};
 		});
 		break;
 		case index=1:
 		element.addEventListener("click",function(){
-			(areaOne.innerHTML = (1/areaOne.innerHTML));
+			if (areaOp.innerHTML == "") {
+				(areaOne.innerHTML = (1/areaOne.innerHTML));
+			} else {
+				(areaTwo.innerHTML = (1/areaTwo.innerHTML));
+			};
 		});
 		break;
 		case index=2:
 		element.addEventListener("click",function(){
-			(areaOne.innerHTML = (areaOne.innerHTML/1.41421356237));
+			if (areaOp.innerHTML == "") {
+				(areaOne.innerHTML = (areaOne.innerHTML/1.41421356237));
+			} else {
+				(areaTwo.innerHTML = (areaTwo.innerHTML/1.41421356237));
+			};
 		});
 		break;
 		case index=3:
 		element.addEventListener("click",function(){
-			(areaOne.innerHTML = (areaOne.innerHTML*areaOne.innerHTML));
+			if (areaOp.innerHTML == "") {
+				(areaOne.innerHTML = (areaOne.innerHTML*areaOne.innerHTML));
+			} else {
+				(areaTwo.innerHTML = (areaTwo.innerHTML*areaTwo.innerHTML));
+			};
 		});
 		break;
 		case index=4:
 		element.addEventListener("click",function(){
-			(areaMain.innerHTML = areaOne.innerHTML + areaOp.innerHTML);
+			(areaMain.innerHTML = areaOne.innerHTML);
 			(areaOne.innerHTML = "");
 			(areaOp.innerHTML = "");
 		});
