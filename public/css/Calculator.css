@@ -8,6 +8,11 @@
 	padding:0px;
 }
 
+h1 {
+	text-align: center;
+	color:black;
+}
+
 .halfButton {
 	background-color: black;
 	margin: 0px;
@@ -18,12 +23,6 @@
 	padding:0px;
 }
 
-
-div.row2 {
-	width: 100%;
-	height: 100px;	
-}
-
 .r2col1, .r2col3 {
 	background-color: black;
 	width:40.6%;
@@ -31,17 +30,28 @@ div.row2 {
 	height:97px;
 	float:left;
 	color:white;
+	font-weight: bold;
+	text-align: center;
+	font-size: 2em
 }
 
 .r2col2 {
-	width: 9.5%;
+	width: 14.8%;
 	border:1px;
 	height:98px;
 	float:left;
+	text-align: center;
+	font-weight: bold;
+	font-size: 1.3em
+
 
 }
 
-.container, .row, .col {
-	margin-right:0px;
-	width:95%;
+#areaMain {
+	width: 96%;
+}
+
+.row, .col {
+	margin:0px;
+	width:100%;
 }
