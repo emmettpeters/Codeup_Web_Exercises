@@ -5,9 +5,10 @@
 	<link rel="stylesheet" href="css/Calculator.css">
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<audio id="audio" src="imgs/gunshot.mp3" autostart="false" ></audio>
+	<audio id="audio2" src="imgs/guncock.mp3" autostart="false" ></audio>
 </head>
 <body id="body">
-<p><h1><span>My Big Black Calc...<sub>(weaponized)</sub></span></h1></p>
+<p><h1><span>My Big Calc...<sub>(weaponized)</sub></span></h1></p>
 <hr>
 	<div class="container">
 		<div class="row">
@@ -28,46 +29,56 @@
 			<button id="one" class="button col-3">1</button>
 			<button id="two" class="button col-3">2</button>
 			<button id="three" class="button col-3">3</button>
-			<button onclick="playSound();" onclick="playSound();" id="divide" class="twoOps button col-3">/</button>
+			<button onclick="playSound2();" id="divide" class="twoOps button col-3">/</button>
 		</div>
 		<div class="row">
 			<button id="four" class="button col-3">4</button>
 			<button id="five" class="button col-3">5</button>
 			<button id="six" class="button col-3">6</button>
-			<button onclick="playSound();" id="multiply" class="twoOps button col-3">X</button>
+			<button onclick="playSound2();" id="multiply" class="twoOps button col-3">X</button>
 		</div>
 		<div class="row">
 			<button id="seven" class="button col-3">7</button>
 			<button id="eight" class="button col-3">8</button>
 			<button id="nine" class="button col-3">9</button>
-			<button onclick="playSound();" id="plus" class="twoOps button col-3">+</button>
+			<button onclick="playSound2();" id="plus" class="twoOps button col-3">+</button>
 		</div>
 		<div class="row">
 			<button onclick="playSound();" id="equals" class="oneOps halfButton col-3">=</button>
-			<button onclick="playSound();" id="store" class="oneOps halfButton col-3">Store</button>
+			<button onclick="playSound2();" id="store" class="oneOps halfButton col-3">Store</button>
 			<button id="zero" class="button col-3">0</button>
 			<button id="decimal" class="halfButton col-3">.</button>
 			<button onclick="playSound();" id="clear" class="halfButton col-3">C</button>
-			<button onclick="playSound();" id="minus" class="twoOps button col-3">-</button>
+			<button onclick="playSound2();" id="minus" class="twoOps button col-3">-</button>
 		</div>
 		<div class="row">
-			<button onclick="playSound();" id="usLeft" class="oneOps button col-3">US<br>Left</button>
+			<button onclick="playSound2();" id="usLeft" class="oneOps button col-3">US<br>Left</button>
 			<button id="decimal" class="button col-3">unknown</button>
 			<button id="clear" class="button col-3">unknown</button>
-			<button onclick="playSound();" id="usRight" class="oneOps button col-3">US<br>Right</button>
+			<button onclick="playSound2();" id="usRight" class="oneOps button col-3">US<br>Right</button>
 		</div>
 	</div>
-	
+
 <script type="text/javascript" src="js/Calculator.js"></script>
 <script type="text/javascript">
+//gunshot sound mp3 gunshot sound mp3 gunshot sound mp3 gunshot sound mp3 gunshot sound mp3 gunshot sound mp3 
+//gunshot sound mp3 gunshot sound mp3 gunshot sound mp3 gunshot sound mp3 gunshot sound mp3 gunshot sound mp3 
 
 function playSound() {
           var sound = document.getElementById("audio");
           sound.play();
       }
 
-// Three Input Areas!!!  Three Input Areas!!! Three Input Areas!!! Three Input Areas!!! Three Input Areas!!! 
-// Three Input Areas!!! Three Input Areas!!! Three Input Areas!!! Three Input Areas!!! Three Input Areas!!! 
+function playSound2() {
+          var sound = document.getElementById("audio2");
+          sound.play();
+      }
+
+//gunshot sound mp3 gunshot sound mp3 gunshot sound mp3 gunshot sound mp3 gunshot sound mp3 gunshot sound mp3 
+//gunshot sound mp3 gunshot sound mp3 gunshot sound mp3 gunshot sound mp3 gunshot sound mp3 gunshot sound mp3 
+
+//Input Areas Input Areas Input Areas Input Areas Input Areas Input Areas Input Areas Input Areas 
+//Input Areas Input Areas Input Areas Input Areas Input Areas Input Areas Input Areas Input Areas
 
 var areaOne = document.getElementById("areaOne");
 areaOne.innerHTML = null;
@@ -80,8 +91,8 @@ areaOp.innerHTML = null;
 
 var areaMain = document.getElementById("areaMain");
 
-// Three Input Areas!!!  Three Input Areas!!! Three Input Areas!!! Three Input Areas!!! Three Input Areas!!! 
-// Three Input Areas!!! Three Input Areas!!! Three Input Areas!!! Three Input Areas!!! Three Input Areas!!! 
+//Input Areas Input Areas Input Areas Input Areas Input Areas Input Areas Input Areas Input Areas 
+//Input Areas Input Areas Input Areas Input Areas Input Areas Input Areas Input Areas Input Areas 
 
 //Button Definitions Button Definitions Button Definitions Button Definitions Button Definitions 
 //Button Definitions Button Definitions Button Definitions Button Definitions Button Definitions 
@@ -211,20 +222,6 @@ buttonEquals.addEventListener("click",function(){
 	}
 });
 
-buttonUsLeft.addEventListener("click",function(){
-	if (areaMain.innerHTML != ""){
-	areaOne.innerHTML = areaMain.innerHTML;
-	areaMain.innerHTML = "";}
-});
-
-buttonUsRight.addEventListener("click",function(){
-	if (areaMain.innerHTML != ""){
-	areaTwo.innerHTML = areaMain.innerHTML;
-	areaMain.innerHTML = "";}
-});
-	
-
-
 buttonClear.addEventListener("click",function(){
 	areaOne.innerHTML = "";
 	areaOp.innerHTML = "";
@@ -238,6 +235,18 @@ buttonClear.addEventListener("dblclick",function(){
 	areaMain.innerHTML = "";
 });
 
+buttonUsLeft.addEventListener("click",function(){
+	if (areaMain.innerHTML != ""){
+	areaOne.innerHTML = areaMain.innerHTML;
+	areaMain.innerHTML = "";}
+});
+
+buttonUsRight.addEventListener("click",function(){
+	if (areaMain.innerHTML != ""){
+	areaTwo.innerHTML = areaMain.innerHTML;
+	areaMain.innerHTML = "";}
+});
+	
 	//Operation Button Function
 	//Operation Button Function
 
