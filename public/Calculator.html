@@ -237,14 +237,16 @@ buttonClear.addEventListener("dblclick",function(){
 
 buttonUsLeft.addEventListener("click",function(){
 	if (areaMain.innerHTML != ""){
-	areaOne.innerHTML = areaMain.innerHTML;
-	areaMain.innerHTML = "";}
+		areaOne.innerHTML = areaMain.innerHTML;
+		areaMain.innerHTML = "";
+	}
 });
 
 buttonUsRight.addEventListener("click",function(){
 	if (areaMain.innerHTML != ""){
-	areaTwo.innerHTML = areaMain.innerHTML;
-	areaMain.innerHTML = "";}
+		areaTwo.innerHTML = areaMain.innerHTML;
+		areaMain.innerHTML = "";
+	}
 });
 	
 	//Operation Button Function
@@ -264,47 +266,47 @@ var buttonIdsOpSingle = [
 buttonIdsOpSingle.forEach(function(element, index){
 	switch (index){
 		case index=0:
-		element.addEventListener("click",function(){
-			if (areaOp.innerHTML == "") {
-				(areaOne.innerHTML = ((0-1)*areaOne.innerHTML));
-			} else {
-				(areaTwo.innerHTML = ((0-1)*areaTwo.innerHTML));
-			};
-		});
+			element.addEventListener("click",function(){
+				if (areaOp.innerHTML == "") {
+					(areaOne.innerHTML = ((0-1)*areaOne.innerHTML));
+				} else {
+					(areaTwo.innerHTML = ((0-1)*areaTwo.innerHTML));
+				};
+			});
 		break;
 		case index=1:
-		element.addEventListener("click",function(){
-			if (areaOp.innerHTML == "") {
-				(areaOne.innerHTML = (1/areaOne.innerHTML));
-			} else {
-				(areaTwo.innerHTML = (1/areaTwo.innerHTML));
-			};
-		});
+			element.addEventListener("click",function(){
+				if (areaOp.innerHTML == "") {
+					(areaOne.innerHTML = (1/areaOne.innerHTML));
+				} else {
+					(areaTwo.innerHTML = (1/areaTwo.innerHTML));
+				};
+			});
 		break;
 		case index=2:
-		element.addEventListener("click",function(){
-			if (areaOp.innerHTML == "") {
-				(areaOne.innerHTML = (areaOne.innerHTML/1.41421356237));
-			} else {
-				(areaTwo.innerHTML = (areaTwo.innerHTML/1.41421356237));
-			};
-		});
+			element.addEventListener("click",function(){
+				if (areaOp.innerHTML == "") {
+					(areaOne.innerHTML = (areaOne.innerHTML/1.41421356237));
+				} else {
+					(areaTwo.innerHTML = (areaTwo.innerHTML/1.41421356237));
+				};
+			});
 		break;
 		case index=3:
-		element.addEventListener("click",function(){
-			if (areaOp.innerHTML == "") {
-				(areaOne.innerHTML = (areaOne.innerHTML*areaOne.innerHTML));
-			} else {
-				(areaTwo.innerHTML = (areaTwo.innerHTML*areaTwo.innerHTML));
-			};
-		});
+			element.addEventListener("click",function(){
+				if (areaOp.innerHTML == "") {
+					(areaOne.innerHTML = (areaOne.innerHTML*areaOne.innerHTML));
+				} else {
+					(areaTwo.innerHTML = (areaTwo.innerHTML*areaTwo.innerHTML));
+				};
+			});
 		break;
 		case index=4:
-		element.addEventListener("click",function(){
-			(areaMain.innerHTML = areaOne.innerHTML);
-			(areaOne.innerHTML = "");
-			(areaOp.innerHTML = "");
-		});
+			element.addEventListener("click",function(){
+				(areaMain.innerHTML = areaOne.innerHTML);
+				(areaOne.innerHTML = "");
+				(areaOp.innerHTML = "");
+			});
 		break;
 	}
 });
