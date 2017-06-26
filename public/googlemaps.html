@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Paesano's Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 90%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 90%;
+        margin: 0;
+        padding: 0;
+      }
+
+      .zoom {
+        height:50px;
+        width:100px;
+        border: 1px solid black;
+      }
+
+      h1 {text-align: center}
+
+    </style>
+  </head>
+  <body>
+  <h1>My First Map</h1>
+    <div id="map"></div>
+    <script>
+
+      var map;
+      
+      var restaurants = [
+        ['sea island', 29.488228, -98.7826108],
+        ['cicis', 29.4546188, -98.2826081],
+        ['mcdonalds', 29.454183, -98.5724503]
+
+      ];
+
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: 29.4985198, lng: -98.4754167},
+          zoom: 15
+        });
+
+         // Create lat and long for our marker position
+        var paesanos = { lat: 29.4985198, lng: -98.4754167};
+
+        var infowindow = new google.maps.InfoWindow({
+            content: "<h2>Paesano's</h2><p>Location of the best Italian food youve ever had.</p>"
+          });
+        // Add the marker to our existing map
+        var marker = new google.maps.Marker({
+            position: paesanos,
+            map: map,
+            draggable: true,
+            animation: google.maps.Animation.DROP,
+
+        });
+        marker.addListener('click', function() {
+            infowindow.open(map, marker);
+        });
+
+        function setMarkers(map) {
+          
+          var image = {
+            url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+            // This marker is 20 pixels wide by 32 pixels high.
+            size: new google.maps.Size(32, 32),
+            // The origin for this image is (0, 0).
+            origin: new google.maps.Point(0, 0),
+            // The anchor for this image is the base of the flagpole at (0, 32).
+            anchor: new google.maps.Point(0, 32)
+          };
+         
+          for (var i = 0; i < restaurants.length; i++) {
+            var restaurant = restaurants[i];
+            var marker = new google.maps.Marker({
+              position: {lat: restaurant[1], lng: restaurant[2]},
+              map: map,
+              icon: image,
+              title: restaurant[0],
+            });
+          }
+        }
+
+        setMarkers(map);
+
+      }   
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDn0mvV1AvSCWtYHk1xdEqE7CCMkuBPzfM&callback=initMap"
+    async defer></script><!-- 
+    <script src="js/googlemaps.js"></script> -->
+  </body>
+</html>
