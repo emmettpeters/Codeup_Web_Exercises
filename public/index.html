@@ -12,6 +12,7 @@
 			<div id="header" class="boxSizeH col-xs-8">Whack-A-Ferret</div>
 			<div class="boxSizeH col-xs-4">
 				<div class="col-xs-12">Scoreboard</div>
+				<hr>
 				<div id="scoreboard" class="col-xs-12">0</div>
 			</div>
 		</div>
@@ -50,23 +51,26 @@ var header = document.getElementById("header");
 var scoreboard = document.getElementById("scoreboard");
 
 var boxes = document.querySelectorAll(".boxSize");
-console.log(boxes);
 
 function randomBox(){
 	boxes[Math.floor(Math.random()*boxes.length)].style.backgroundColor = "red";
+
 }
 
 randomBox()
-// item.style.backgroundColor = "red";
 
 boxes.forEach(function(element, index){
-		element.addEventListener("click", function(){
-			if (element.style.backgroundColor = "red"){
-				randomBox();
-
-
-			}
-		})});
+	element.addEventListener("click", function(){
+		if (element.style.backgroundColor == "red"){
+			element.style.backgroundColor = "white";
+			randomBox();
+			scoreboard.innerHTML = (parseInt(scoreboard.innerHTML) + 1);
+		} else {
+			scoreboard.innerHTML = 0;
+			//Alec's idea for unforgiving game
+		}
+	})
+});
 
 
 
