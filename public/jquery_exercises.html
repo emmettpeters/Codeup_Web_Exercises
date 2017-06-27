@@ -69,6 +69,8 @@
 
 	<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
 	<script type="text/javascript">
+
+
 //ids
 
 	// var $topHTML = $("#top").html();
@@ -87,6 +89,23 @@
 	var h1Content = $("h1").html();
 	alert(h1Content);
 
+//Extra practice
+
+	// $(".picsinsquare").click(function(){
+	// 	$(".picsinsquare").css({width: "200px",height:"300px"});
+	// });
+
+	// $(".picsinsquare").dblclick(function(){
+	// 	$(".picsinsquare").css({width: "300px",height:"300px"});
+	// })
+	
+	$(".picsinsquare").hover(
+		function(){
+			$(".picsinsquare").css({width: "300px",height:"300px"})
+		}, 
+		function(){
+			$(".picsinsquare").css({width: "200px",height:"300px"})
+		});
 
 
 

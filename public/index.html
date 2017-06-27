@@ -68,55 +68,60 @@
 
 	var start = alert("Are you ready to start?");
 
+
+// this code will count to 10
+		
 	if (start !== false) {
-
+		var i = 0;
 		var intervalId = setInterval(function(){
-							startGame()
-						},1000); 
-
-		function startGame(){
-			boxes.forEach(function(element, index){		
-
-				element.addEventListener("click", function(){
-					if (element.style.backgroundColor == "red"){
-						element.style.backgroundColor = "white";
-						randomBox();
-						scoreboard.innerHTML = (parseInt(scoreboard.innerHTML) + 1);
-					} else {
-						scoreboard.innerHTML = 0;
-						//Alec's idea for unforgiving game
-					}
-
-					var x = scoreboard.innerHTML
-
-					if (x >= 100) {
-						rank.innerHTML = "General";
-					} else if (x>=80 && x<=99) {
-						rank.innerHTML = "Colonel";
-					} else if (x>=65 && x<=79) {
-						rank.innerHTML = "Major";
-					} else if (x>=45 && x<=64){
-						rank.innerHTML = "Captain";
-					}  else if (x>=35 && x<=44) {
-						rank.innerHTML = "Lieutenant";
-					} else if (x>=26 && x<=34) {
-						rank.innerHTML = "Sargeant";
-					}  else if (x>=19 && x<=25) {
-						rank.innerHTML = "Corporal";
-					}  else if (x>=11 && x<=18) {		
-						rank.innerHTML = "Private First Class";
-					}  else if (x>5 && x<11) {
-						rank.innerHTML = "Private";
-					} else {
-						rank.innerHTML = "Enlisting..."
-					}
-				})
-			});
-		}
+		    i++;
+		    console.log(i);
+		    randomBox();
+		    if (i == 10) {
+		        clearInterval(intervalId);
+		    }
+		}, 400);
 	}
-	function stopGame(){
-		clearInterval(intervalId)
-	}
+
+
+	boxes.forEach(function(element, index){		
+		element.addEventListener("click", function(){
+			if (element.style.backgroundColor == "red"){
+				element.style.backgroundColor = "white";
+				// randomBox();
+				scoreboard.innerHTML = (parseInt(scoreboard.innerHTML) + 1);
+			} else {
+				scoreboard.innerHTML = 0;
+				//Alec's idea for unforgiving game
+			}
+
+			var x = scoreboard.innerHTML
+
+			if (x >= 100) {
+				rank.innerHTML = "General";
+			} else if (x>=80 && x<=99) {
+				rank.innerHTML = "Colonel";
+			} else if (x>=65 && x<=79) {
+				rank.innerHTML = "Major";
+			} else if (x>=45 && x<=64){
+				rank.innerHTML = "Captain";
+			}  else if (x>=35 && x<=44) {
+				rank.innerHTML = "Lieutenant";
+			} else if (x>=26 && x<=34) {
+				rank.innerHTML = "Sargeant";
+			}  else if (x>=19 && x<=25) {
+				rank.innerHTML = "Corporal";
+			}  else if (x>=11 && x<=18) {		
+				rank.innerHTML = "Private First Class";
+			}  else if (x>5 && x<11) {
+				rank.innerHTML = "Private";
+			} else {
+				rank.innerHTML = "Enlisting..."
+			}
+		})
+	});
+
+
 })();
 
 
