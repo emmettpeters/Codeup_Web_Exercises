@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Javascript Assesment Submission</title>
+	<meta charset="UTF-8">
+</head>
+<body>
+
+
+
+	<script type="text/javascript">
+// problem One
+// problem One
+	var numPrompt = prompt("give me a number and ill tell you if it is negative or positive");
+
+	function isNegative(){
+		if (parseInt(numPrompt) < 0) {
+			alert("OMG ITS NEGATIVE!!!")
+		} else {
+			alert("Its positive")
+		}
+	}
+
+	isNegative()
+
+// problem Two
+// problem Two
+
+	var numArray = [1,2,3,4,5,6];
+
+	var sum = 0;
+
+	function average(){
+		for( var i = 0; i < numArray.length; i++ ){
+	    	sum += parseInt( numArray[i], 10 );
+		}
+		var avg = sum/numArray.length;
+		console.log("The sum of all the elements is: " + sum + " The average is: " + avg );
+	};
+
+	average();
+
+//problem 3
+//problem 3
+	
+	var numArray2 = [1,2,3,4,5,6];
+	var oddCount = 0;
+
+	function countOdds(){
+
+		for( var i = 0; i < numArray2.length; i++ ){
+	    	if(numArray2[i]%2!==0){
+	    		oddCount += 1;
+	    	}
+		}
+	}
+
+	countOdds();
+	console.log(oddCount)
+
+//problem 4
+//problem 4
+
+	var nameString = "emmett,peters";
+	var nameObject;
+
+	function convertNameToObject(){
+		var nameArray =nameString.split(",");
+		console.log(nameArray[0]);
+		console.log(nameArray[1]);
+
+		nameObject = {
+			firstName: nameArray[0],
+			lastName: nameArray[1]
+		}
+
+	}
+	
+	convertNameToObject();
+
+	console.log(nameObject);
+
+//problem 5
+//problem 5 
+
+	var number = 10;
+	var numArray3 = []
+
+	function fiveTo(){
+		for( var i = 5; i <= number; i++ ){
+	    	numArray3.push(i)
+		}
+	};
+
+	fiveTo();
+	console.log(numArray3);
+
+//problem 6
+//problem 6
+
+	 var names = [
+	     {firstName: 'Harry', lastName: 'Potter'},
+	     {firstName: 'Ron', lastName: 'weasley'},
+	     {firstName: 'Hermione', lastName: 'granger'}
+	 ];
+
+	function upperCaseNames(){
+		for( var i = 0; i < names.length; i++ ){
+			var firstLetter1 = names[i].firstName.substring(0,1);
+
+			console.log(names[i].lastName.substring(0,1));
+			var firstLetter2 = names[i].lastName.substring(0,1);
+		}
+	}
+
+	upperCaseNames();
+
+		
+	</script>
+	
+</body>
+</html>

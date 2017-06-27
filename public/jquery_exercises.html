@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jQuery</title>
+</head>
+<body>
+
+	<header id="headerbox">
+		<h1 class="fancy-header">Welcome to Ineffectual Dynamics</h1>
+		<p id="header-motto">At Ineffectual Dynamics, we have <strong><em>A LOT</em></strong> of problems trying to solve your problems with technology :(</p>
+	</header>
+	<div class="info">
+		<div class="center">
+			<h2 id="top">Core vaues</h2>
+			<ul>
+				<li>sexiness</li>
+				<li>inflated egos</li>
+				<li>boat have-a-bility</li>
+			</ul>
+			<h2>OUR process</h2>
+			<ul>
+				<li>BE</li>
+				<li>A</li>
+				<li>BADASS</li>
+			</ul>
+			<h2>2020 vision</h2>
+			<ul>
+				<li>Is for hawks,</li>
+				<li> and owls,</li>
+				<li> BUT NOT MEEE!!!</li>
+			</ul>
+		</div>
+		<hr>
+		<h2>Company pics</h2>
+		<img class="picsinsquare" src="imgs/goats.jpeg">
+		<img class="picsinsquare" src="imgs/plant.jpeg">
+		<br>
+		<img class="picsinsquare" src="imgs/kitty.jpeg">
+		<img class="picsinsquare" src="imgs/download.jpeg">
+		<h2 id="top">Our Products</h2>
+		<table>
+		  <tr class="codeup">
+		    <th>Plan</th>
+		    <th>Price</th> 
+		    <th>Features.</th>
+		  </tr>
+		  <tr class="codeup">
+		    <td>Premium</td>
+		    <td>400k</td> 
+		    <td><strong>Free Strippers</strong></td>
+		  </tr>
+		  <tr class="codeup">
+		    <td class="codeup">gold</td>
+		    <td class="codeup">200k</td> 
+		    <td class="codeup">free puppies</td>
+		  </tr>
+		  <tr class="codeup">
+		    <td>silver</td>
+		    <td>100k</td> 
+		    <td>free kitties</td>
+	  	  </tr>
+	    </table>
+	    <summary class="summary">
+	    	<p><em><strong>ALL</strong> products and services come with <strong>NO</strong> warranty or guarantee<sup>TM</sup></em></p>
+	    <a href="#top">go to top of page</a>
+	    </summary>
+	</div>
+
+
+	<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+	<script type="text/javascript">
+//ids
+
+	// var $topHTML = $("#top").html();
+	// alert($topHTML);
+	// console.log($topHTML);
+
+	// var $mottoHTML = $("#header-motto").html();
+	// alert($mottoHTML);
+//classes
+	
+	$(".codeup").css("border", "1px solid blue");
+	$("li").css("font-size","20px");
+
+	$("h1,p,li").css("background-color","yellow");
+
+	var h1Content = $("h1").html();
+	alert(h1Content);
+
+
+
+
+
+
+		
+	</script>
+</body>
+</html>
