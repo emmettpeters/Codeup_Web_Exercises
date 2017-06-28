@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mortal Combat Code</title>
+    <audio id="audio" src="imgs/gunshot.mp3" autostart="false" ></audio>
+    <audio id="audio2" src="imgs/guncock.mp3" autostart="false" ></audio>
+    <style type="text/css">
+    	#progress, h1{
+    		text-align: center;
+    	}
+    	#progress2 {
+    		width:100%;
+    		height:150px;
+    	}
+    	
+    </style>
+</head>
+<body>
+    <h1>MORTAL COMBAT Code</h1>
+	<hr>
+    <div id="progress">Your progress on the code will show UP here</div>
+    <div id="progress2"></div>
+    <button id="reset">RESET</button>
+
+    <script src="js/jquery-3.2.1.js"></script>
+    <script>
+        "use strict";
+
+        $("body").css("background","green");
+
+		function playSound() {
+          var sound = document.getElementById("audio");
+          sound.play();
+      	}
+      	function playSound2() {
+          var sound = document.getElementById("audio2");
+          sound.play();
+      	}
+
+// First way
+
+        var keyArray = [
+        38,
+        38,
+        40,
+        40,
+        37,
+        39,
+        37,
+        39,
+        66,
+        65
+        ];
+
+        var i = 0;
+
+        $(document).keyup(function(event){	
+        	if (event.keyCode == keyArray[i]){
+        		i++;
+        		console.log(i);
+		        $("#reset").click(function(){
+					i = 0;
+				});
+				var fsVar = ((i * 5)+10)
+	    			if (i<10){
+	    				$("#progress").css("font-size",fsVar);
+	    			} else {
+	    				$("#progress").css("font-size",fsVar).text("YOU WIN!!!");
+	    				$("#progress2").css("background-image","url('imgs/200w_d.gif')");
+	    				// playsound();
+	    			}
+        	} else {
+        		i=0;
+        	};
+        });
+
+
+
+
+
+//Second way
+
+
+
+		// var konami = "38,38,40,40,37,39,37,39,66,65";
+
+  //       var inputCodeArray = [];
+		
+		// $(document).keyup(function(event){
+  //       	inputCodeArray.push(event.keyCode);
+		//     console.log(inputCodeArray.join(","));
+		//     if(inputCodeArray.join(",")==konami){
+		//     	playSound();
+		//     	$("body").css("background-image","url('imgs/goats.jpeg')");
+		//     }
+		// });
+
+		// $(document).keyup(function(event){
+  //       	if (inputCodeArray.join(",") === "38,38,40,40"){
+  //       		playSound2();
+  //       	 }
+		// });
+
+		// $("#reset").click(function(){
+		// 	inputCodeArray=[];
+		// });
+
+        	
+
+
+    </script>
+</body>
+</html>
