@@ -13,6 +13,10 @@
 	</style>
 </head>
 <body>
+<h2>OH YOURE GOING TO REGISTER, LIKE IT OR NOT!!</h2>
+<div id="div1"><h1>Would you like to sign up for a newsletter?</h1>
+<span>X</span>
+</div>
 <dl>
 	<h1>SHOW Double Ds</h1>
 	<dt>Fact #1</dt>
@@ -90,21 +94,48 @@
 
 	$('dt').click(function(){
 		$('dd').toggleClass('highlighted');
-	})
+	});
 
 	$('button').click(function(){
 		$('ul').each(function(){
-			$(this).children().last().css('backgroundColor',"green")
-		})
-	})
+			$(this).children().last().css('backgroundColor',"green");
+		});
+	});
 
-	$('h3').click(function(){
-		$(this).next().children().toggleClass('highlighted')
-	})
+	// $('h3').click(function(){
+	// 	$(this).next().children().toggleClass('highlighted');
+	// });
 
 	$('li').click(function(){
-		$(this).parent().children().first().css("color","blue")
+		$(this).parent().children().first().css("color","blue");
+	});
+
+	$('span').click(function(){
+		$('#div1').hide();
 	})
+
+	$('ul').hide();
+
+	$('h3').click(function(){
+		$(this).next().slideToggle();
+	})
+
+	$('h2').hide()
+
+	var i = 0;
+	var interval = setInterval(unhide, 8000);
+	function unhide(){
+		$('h2').toggle();
+		i++;
+		if(i>=1){
+			clearInterval(interval)
+		};
+	}
+
+
+
+
+
 
 
 
