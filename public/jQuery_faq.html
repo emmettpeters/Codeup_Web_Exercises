@@ -6,6 +6,7 @@
 		.invisible {
 			display:none;
 		}
+
 		.highlighted {
 			background-color:yellow;
 		}
@@ -14,67 +15,68 @@
 <body>
 <dl>
 	<h1>SHOW Double Ds</h1>
-	<dt>Fact #</dt>
+	<dt>Fact #1</dt>
 	<dd>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 		consequat.
 	</dd>
-	<dt>Fact #</dt>
+	<dt>Fact #2</dt>
 	<dd>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 	consequat.
 	</dd>
-	<dt>Fact #</dt>
+	<dt>Fact #3</dt>
 	<dd>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 		consequat.
 	</dd>
-	<dt>Fact #</dt>
+	<dt>Fact #4</dt>
 	<dd>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 		consequat.
 	</dd>
-	<dt>Fact #</dt>
+	<dt>Fact #5</dt>
 	<dd>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 		consequat.
 	</dd>
-	<dt>Fact #</dt>
-	<dd>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-		consequat.
-	</dd>
-	<dt>Fact #</dt>
-	<dd>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-		consequat.
-	</dd>
-	<dt>Fact #</dt>
-	<dd>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-		consequat.
-	</dd>
-	<dt>Fact #</dt>
-	<dd>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-		consequat.
-	</dd>
-	<dt>Fact #</dt>
+	<dt>Fact #6</dt>
 	<dd>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 		consequat.
 	</dd>
 </dl>
+<h3 id="national-parks-heading">National Parks</h3>
+<ul id="national-parks">
+    <li>Arches</li>
+    <li>Badlands</li>
+    <li>Carlsbad Caverns</li>
+    <li>Denali</li>
+    <li>Everglades</li>
+</ul>
+<h3 id="national-parks-heading">State Parks of Texas</h3>
+<ul id="state-parks-texas">
+    <li>Abilene</li>
+    <li>Big Bend</li>
+    <li>Choke Canyon</li>
+    <li>Davis Mountains</li>
+    <li>Enchanted Rock</li>
+</ul>
+<h3 id="parks-heading">Parks of Texas</h3>
+<ul id="parks-texas">
+    <li>Abilene</li>
+    <li>Big Bend</li>
+    <li>Choke Canyon</li>
+    <li>Davis Mountains</li>
+    <li>Enchanted Rock</li>
+</ul>
+<button>Change</button>
 <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
 <script type="text/javascript" >
 	
@@ -90,6 +92,19 @@
 		$('dd').toggleClass('highlighted');
 	})
 
+	$('button').click(function(){
+		$('ul').each(function(){
+			$(this).children().last().css('backgroundColor',"green")
+		})
+	})
+
+	$('h3').click(function(){
+		$(this).next().children().toggleClass('highlighted')
+	})
+
+	$('li').click(function(){
+		$(this).parent().children().first().css("color","blue")
+	})
 
 
 
