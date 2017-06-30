@@ -122,15 +122,17 @@
 
 	$('h2').hide()
 
-	var i = 0;
-	var interval = setInterval(unhide, 8000);
-	function unhide(){
-		$('h2').toggle();
-		i++;
-		if(i>=1){
-			clearInterval(interval)
-		};
-	}
+	// var i = 0;
+	// var interval = setInterval(unhide, 8000);
+	// function unhide(){
+	// 	$('h2').toggle();
+	// 	i++;
+	// 	if(i>=1){
+	// 		clearInterval(interval)
+	// 	};
+	// }
+
+	$('h2').delay().toggle();
 
 
 

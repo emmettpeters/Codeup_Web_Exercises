@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ajax BLOG</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<meta charset="UTF-8">
+	<style type="text/css">
+	
+
+
+	</style>
+</head>
+<body>
+	<div id="posts"></div>
+	<button id="ajax">RESET</button>
+<script type="text/javascript" src="js/jquery-3.2.1.js"></script>
+<script type="text/javascript">
+
+(function() {
+    // TODO: Create an ajax GET request for /data/inventory.json
+    "use strict";
+    var i;
+// TODO: Create an ajax GET request for /data/inventory.json
+    $("#ajax").click(function(){
+        $('#insertProducts').html("");
+        var ajaxRequest = $.get("data/blog.json")
+       // , {
+            // type: "GET",
+            // data: {}
+        // });
+       // TODO: Take the data from inventory.json and append it to the products table
+        //       HINT: Your data should come back as a JSON object; use console.log() to inspect
+        //             its contents and fields
+        //       HINT: You will want to target #insertProducts for your new HTML elements
+
+       ajaxRequest.done(function(data, status, jqXhr){
+            for (i = 0; i < data.length; ++i) {
+                $('#posts').append("<ul><li>" + data[i].title + "</li><li>" + data[i].quantity
+                                            + "</li><li>" + "$" + data[i].price + "</li><li>" + data[i].categories + "</li></tr>" );
+               console.log(data[i].categories)
+            }
+        });
+
+       ajaxRequest.fail(function(jqXhr, status, error){
+            $('#insertProducts').html = "Something went wrong. Go cry alone in a corner.";
+        });
+    });
+
+})();
+
+
+</script>
+</body>
+</html>
