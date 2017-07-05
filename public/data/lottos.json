@@ -1,0 +1,23 @@
+[
+    {
+        "title": "My First Lottery",
+        "timeLeft": "100",
+        "currentValue": "20000",
+        "cpe": "1 USD"
+    },  {
+        "title": "My Second Lottery",
+        "timeLeft": "400",
+        "currentValue": "18000",
+        "cpe": "1 Dollar"
+    },  {
+        "title": "My Third Lottery",
+        "timeLeft": "800",
+        "currentValue": "14000",
+        "cpe": "1 Dollar"
+    },  {
+        "title": "My Fourth Lottery",
+        "timeLeft": "1000",
+        "currentValue": "10000",
+        "cpe": "1 Dollar"
+    }
+]
