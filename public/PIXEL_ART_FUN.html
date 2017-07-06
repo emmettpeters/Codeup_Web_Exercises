@@ -19,7 +19,7 @@
 			margin-bottom:20px;
 		}
 
-		h1 {
+		h1, #legend {
 			margin-left:40px;
 		}
 
@@ -29,16 +29,45 @@
 			width:60px;
 			border: 1px solid black;}
 		
+		.legBoxes {
+			height:20px;
+			min-width:20px;
+			border: 1px solid black;
+			float:left;
+			text-align: center;
+			margin-left: 20px;
+			margin-right: 20px;
+			color:white;
+		}
 
+		sup {
+			font-size:8px;
+			bottom:20px;
+		}
 
 	</style>
 </head>
 <body>
 	<div class="container">
 		<div class="row">
-			<div  class="col-xs-6"><h1>Pixel Patterns</h1></div>
+			<div  class="col-xs-6"><h1>Pixel Patterns<sup>click for legend</sup></h1></div>
 			<div  class="col-xs-5"><h4>You are currently drawing with this color:</h4></div>
 			<div class="col-xs-1" id="colorId"></div>
+		<div class="row">
+			<div id="legend" class="col-xs-12">
+				<div style="background-color:red;" class="legBoxes">1</div>
+				<div style="background-color:orange;" class="legBoxes">2</div>
+				<div style="background-color:yellow;" class="legBoxes">3</div>
+				<div style="background-color:green;" class="legBoxes">4</div>
+				<div style="background-color:blue;" class="legBoxes">5</div>
+				<div style="background-color:indigo;" class="legBoxes">6</div>
+				<div style="background-color:violet;" class="legBoxes">7</div>
+				<div style="background-color:grey;" class="legBoxes">8</div>
+				<div style="background-color:black;" class="legBoxes">9</div>
+				<div style="background-color:white;color:black;" class="legBoxes">0</div>
+				<div>Anything Other Key Picks Up Your Brush</div>
+			</div>
+		</div>
 			<hr>
 		</div>
 		<div id="pixelBoxes">
@@ -52,65 +81,80 @@
 <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
 <script type="text/javascript">
 
+
+
 var color;
 
  $(document).ready(function(){
-        "use strict";
+    "use strict";
 
-var keyNum;
+	$('#legend').hide();
 
- $(document).keyup(function(event){	
-	keyNum = event.keyCode;
-	console.log(keyNum)
-});
-		     
-var htmlElements = "";
-for (var i = 0; i < 5000; i++) {
-   htmlElements += '<div class="pixelBox"></div>';
-}
-var container = document.getElementById("pixelBoxes");
-
-container.innerHTML = htmlElements;	
-	
-	$('.pixelBox').mouseenter(function(){
-		if (keyNum >= 48 && keyNum <= 58) {
-			$('#colorId').css("backgroundColor",color);
-			$(this).css("backgroundColor",color);
-			 switch (keyNum) {
-			 	case keyNum = 49:
-			 		color = "red";
-			 	break;
-			 	case keyNum = 50:
-			 		color = "orange";
-			 	break;
-			 	case keyNum = 51:
-			 		color = "yellow";
-			 	break;
-			 	case keyNum = 52:
-			 		color = "green";
-			 	break;
-			 	case keyNum = 53:
-			 		color = "blue";
-			 	break;
-			 	case keyNum = 54:
-			 		color = "indigo";
-			 	break;
-			 	case keyNum = 55:
-			 		color = "violet";
-			 	break;
-			 	case keyNum = 56:
-			 		color = "grey";
-			 	break;
-			 	case keyNum = 57:
-			 		color = "black";
-			 	break;
-			 	case keyNum = 48:
-			 		color = "white";
-			 	break; 	
-			}
-		}
+	$('h1').click(function(){
+		$('#legend').toggle();
 	});
-});	
+
+	var keyNum;
+
+	 $(document).keyup(function(event){	
+		keyNum = event.keyCode;
+		console.log(keyNum)
+	});
+	 var mouseDown;
+
+	 $(document).mousedown(function(event){	
+		mouseDown = event.type;
+	});
+		
+			     
+	var htmlElements = "";
+	for (var i = 0; i < 3400; i++) {
+	   htmlElements += '<div class="pixelBox"></div>';
+	}
+	var container = document.getElementById("pixelBoxes");
+
+	container.innerHTML = htmlElements;	
+		
+		$('.pixelBox').mouseenter(function(){
+			if (keyNum >= 48 && keyNum <= 58) {
+				$('#colorId').css("backgroundColor",color);
+
+				$(this).css("backgroundColor",color);
+				switch (keyNum) {
+				 	case keyNum = 49:
+				 		color = "red";
+				 	break;
+				 	case keyNum = 50:
+				 		color = "orange";
+				 	break;
+				 	case keyNum = 51:
+				 		color = "yellow";
+				 	break;
+				 	case keyNum = 52:
+				 		color = "green";
+				 	break;
+				 	case keyNum = 53:
+				 		color = "blue";
+				 	break;
+				 	case keyNum = 54:
+				 		color = "indigo";
+				 	break;
+				 	case keyNum = 55:
+				 		color = "violet";
+				 	break;
+				 	case keyNum = 56:
+				 		color = "grey";
+				 	break;
+				 	case keyNum = 57:
+				 		color = "black";
+				 	break;
+				 	case keyNum = 48:
+				 		color = "white";
+				 	break; 	
+				}
+			}
+		});
+	});	
 
 
 
