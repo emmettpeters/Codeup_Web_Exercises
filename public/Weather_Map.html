@@ -1,0 +1,181 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon"> 
+    
+    <title>Open Weather Map</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style type="text/css">
+    	
+    	.boxSizes {
+    		height:200px;
+    		border:4px solid blue;
+    		text-align: center;
+    	}
+
+    	.row {
+    		border: 1px solid black;
+    		background-color: lightblue;
+    	}
+
+    	h1, h3 {
+    		text-align: center;
+    	}
+
+    	#map {
+    		width:100%;
+    		height:350px;
+    	}
+
+    </style>
+ 
+ </head>
+ 
+ <body>
+ 
+     <main class="container">
+         <div class="row">
+         	<h1>Weather APP</h1>
+         	<h3></h3>
+         </div>
+         <div class="row">
+         	<div id="box1" class="boxSizes col-xs-4"></div>
+         	<div id="box2" class="boxSizes col-xs-4"></div>
+			<div id="box3" class="boxSizes col-xs-4"></div>  	
+         </div>
+         <div class="row">
+         	<div class="col-xs-3"><label>Latitude<input id="lat" type="textbox"></label></div>
+         	<div class="col-xs-3"><label>Longitude<input id="lon" type="textbox"></label></div>
+         	<div class="col-xs-6"><button id="search">Search</button></div>
+         </div>
+         <div class="row">
+         	<div id="map" class="col-xs-12"></div>
+         </div>
+     </main>
+ 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBzWh9OxzXO4d39MckGkqOxeCadM57IGwA&callback=initMap"></script>
+     
+     <!-- jQuery Version 2.2.4 -->
+     <script src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
+ 
+     <!-- Bootstrap JS -->
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+     
+
+    <!-- Custom JS -->
+    <script>
+    // $(document).ready(function() {
+    // 	"use strict";
+    var latitude;
+    var longitude;
+
+    	$('#search').click(function(data){
+    		var a = $('#lat').val();
+    		var b = $('#lon').val();
+    		latitude = Number(a);
+    		longitude = Number(b);
+    		console.log(latitude);
+    		console.log(longitude);
+    		$.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
+			    APPID: "de9ea22d1e6744e656abf56857267405",
+			   	 lat: latitude,
+    			lon: longitude,
+			    units: "imperial"
+			}).done(function(data){	
+				boxLoops(data);
+    		});
+    	});
+
+    	function boxLoops(data){
+    		for (var i = 0;i<3;i++){
+    			$('#box' + (i+1)).html("<br><strong>" + data.list[i].temp.max + "℉/" + data.list[i].temp.min +"℉</strong><br><img src='http://openweathermap.org/img/w/" + data.list[i].weather[0].icon + ".png'><br>" +
+    				data.list[i].weather[0].main + " : " + data.list[i].weather[0].description + "<br>" +
+    				"Clouds: " + data.list[i].clouds + "% Cover<br>" + 
+			    	"Humidity: " + data.list[i].humidity + "%<br>" + 
+			    	"Pressure: " + data.list[i].pressure + "<br>");
+    			console.log(data.city.name);
+    			$('h3').html(data.city.name);
+    		};
+    	};
+
+    	function makeRequest(){
+	    	$.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
+			    APPID: "de9ea22d1e6744e656abf56857267405",
+			    q: "San Antonio, Texas",
+			    units: "imperial"
+			}).done(function(data) {
+				// console.log(data.list[2].weather[0].icon);
+				boxLoops(data);
+	    	}).fail(function(jqXhr, status, error) {
+			    alert("There was an error! Check the console for details");
+			    console.log("Response status: " + status);
+			    console.log("Error object: " + error);
+			});
+     	};
+
+	    makeRequest();
+
+    	var mapOptions = {
+            // Set the zoom level
+            zoom: 19,
+            // This sets the center of the map at our location
+            center: {
+                lat:  29.426791,
+                lng: -98.489602
+            }
+        };
+
+        var clickLat;
+        var clickLon;
+
+        // Render the map
+       function initMap() {
+       		var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+	    	map.addListener('click', function(e) {
+			   placeMarker(e.latLng, map);
+
+			 });
+
+		   	var marker;
+		   	var x = 0;
+			 	function placeMarker(position, map) {
+			   		if(x >= 1){
+			       		marker.setMap(null);
+			    	}
+			    	x++;
+			   		marker = new google.maps.Marker({
+			     		position: position,
+			     		map: map
+			   		});  
+			   		map.panTo(position);
+			   		$.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
+					    APPID: "de9ea22d1e6744e656abf56857267405",
+					   	 lat: clickLat,
+		    			lon: clickLon,
+					    units: "imperial"
+					}).done(function(position){	
+						boxLoops(position);
+		    		});
+			   		console.log(clickLat = position.lat());
+			   		console.log(clickLon = position.lng());
+			
+			}
+    	}
+
+
+	    initMap();
+
+     // });
+    
+    </script>
+
+ </body>
+ 
+</html>

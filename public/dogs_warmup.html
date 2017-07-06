@@ -50,33 +50,34 @@
 
     	function makeRequest(){
 	    	var url = "data/dogs.json";
-	    	var dogAgeOldtf = [];
-	        var dogAgeArray = [];
 	        var request = $.get(url);
+	    	// var dogAgeOldtf = [];
+	     //    var dogAgeArray = [];
 
 
 	        request.done(function(data, status, request) {
 	        	
-	        	isOldDog(data);
+	        	console.log(isOldDog(data));
 	        
 	        	// console.log(data);
 	        	// console.log(status);
 
-	        	for (var i=0;i<data.length;i++){
-	        		dogAgeArray.push(data[i].age)
-	        	}
-	        	// console.log(dogAgeArray);
+	        	// for (var i=0;i<data.length;i++){
+	        	// 	dogAgeArray.push(data[i].age)
+	        	// }
+	        	// // console.log(dogAgeArray);
 
-	        	for (var i=0;i<dogAgeArray.length;i++){
-	        		if(dogAgeArray[i] > 10){
-	        			dogAgeOldtf.push(true);
-	        		} else {
-	        			dogAgeOldtf.push(false);
-	        		};
-	        	};
+	        	// for (var i=0;i<dogAgeArray.length;i++){
+	        	// 	if(dogAgeArray[i] > 10){
+	        	// 		dogAgeOldtf.push(true);
+	        	// 	} else {
+	        	// 		dogAgeOldtf.push(false);
+	        	// 	};
+	        	// };
 
-	        	console.log(dogAgeOldtf);
-	        	return dogAgeOldtf;
+	        	// console.log(dogAgeOldtf);
+	        	// return dogAgeOldtf;
+	        	return(isOldDog(data));
 	        
 	        });
 
