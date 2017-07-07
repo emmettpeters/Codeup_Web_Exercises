@@ -24,10 +24,10 @@ sub {
 	max-width: 250px;
 }*/
 
-div.heightMax {
+/*div.heightMax {
 	height: 220px;
 
-}
+}*/
 
 .degrees {
 	transform: rotate(180deg);

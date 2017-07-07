@@ -140,32 +140,31 @@
        		var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 	    	map.addListener('click', function(e) {
 			   placeMarker(e.latLng, map);
-
-			 });
+			});
 
 		   	var marker;
 		   	var x = 0;
-			 	function placeMarker(position, map) {
-			   		if(x >= 1){
-			       		marker.setMap(null);
-			    	}
-			    	x++;
-			   		marker = new google.maps.Marker({
-			     		position: position,
-			     		map: map
-			   		});  
-			   		map.panTo(position);
-			   		$.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
-					    APPID: "de9ea22d1e6744e656abf56857267405",
-					   	 lat: clickLat,
-		    			lon: clickLon,
-					    units: "imperial"
-					}).done(function(position){	
-						boxLoops(position);
-		    		});
-			   		console.log(clickLat = position.lat());
-			   		console.log(clickLon = position.lng());
-			
+            
+		 	function placeMarker(position, map) {
+		   		if(x >= 1){
+		       		marker.setMap(null);
+		    	}
+		    	x++;
+		   		marker = new google.maps.Marker({
+		     		position: position,
+		     		map: map
+		   		});  
+		   		map.panTo(position);
+		   		$.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
+				    APPID: "de9ea22d1e6744e656abf56857267405",
+				   	 lat: clickLat,
+	    			lon: clickLon,
+				    units: "imperial"
+				}).done(function(position){	
+					boxLoops(position);
+	    		});
+		   		console.log(clickLat = position.lat());
+		   		console.log(clickLon = position.lng());
 			}
     	}
 
