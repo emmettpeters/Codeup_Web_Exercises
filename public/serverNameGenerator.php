@@ -1,12 +1,14 @@
 <?php
+
+function randomOne($array1,$array2){
+	 return $array1[array_rand($array1)] . $array2[array_rand($array2)];
+}
+	
 function pageController(){
 
 	$array1 = ["fat","skinny","ugly","happy","quick","fast","tall","smart","nimble","agile"];
 	$array2 = ["Emu","Donkey","Peacock","Ram","Horse","Corvette","BMW","Rocket","Space","Earth"];
 
-	function randomOne($array1,$array2){
-		 return $array1[array_rand($array1)] . $array2[array_rand($array2)];
-	}
 
 	$serverName = randomOne($array1,$array2);
 
