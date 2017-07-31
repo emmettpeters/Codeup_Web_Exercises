@@ -11,11 +11,6 @@ $serverName = randomOne($array1,$array2);
 
 $favThings = ["money","fun","outdoors","cars","activities"];
 
-function favThings($array){
-	for ($i = 0;$i < count($array);$i++){
-		echo "<tr><td>" . $array[$i] . "</td></tr>";
-	}
-}
 
 $contacts = [
     'contact1'=> [
@@ -32,46 +27,34 @@ $contacts = [
     ]
      
 ];
-
-function foreachContacts($array){
-	foreach($array as $key => $person){
-		echo "<tr><td>" . $key . "</td><td>" . $person['name'] . "</td><td>" . $person['number'] . "</td></tr>";
-	}
-}
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Random Server Name</title>
-	<style type="text/css">
-
-		table>tr:nthChild(odd){
-			background-color:lightblue;
-		}
-
-	</style>
 </head>
 
 <body>
-	<h1>Random Server Name = <?php echo $serverName ?></h1>
-
+	<h1>Random Server Name = <?= $serverName ?></h1>
 	<table>
 		<th>Favorite Things</th>
+		<?php foreach ($favThings as $thing): ?>
 		<tr>
-			<?php favThings($favThings) ?>
+			<td><?= $thing ?></td>
 		</tr>
+		<?php endforeach ?>
 	</table>
 	<br>
 	<table>
 		<th>Contacts</th>
-			<?php foreach($contacts as $key => $person){ ?>
+			<?php foreach($contacts as $key => $person): ?>
 			<tr>
-			<td> <?php echo $key ?> </td>
-			<td> <?php echo $person['name'] ?> </td>
-			<td> <?php echo $person['number'] ?> </td>
+			<td> <?= $key ?> </td>
+			<td> <?= $person['name'] ?> </td>
+			<td> <?= $person['number'] ?> </td>
 			</tr>
-			<?php } ?>
+			<?php endforeach ?>
 		</tr>
 
 
