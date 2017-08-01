@@ -1,5 +1,4 @@
 <?php
-
 function up($value){
 	return $value + 1;
 }
@@ -22,7 +21,6 @@ function pageController(){
 }
 
 extract(pageController());
-
 ?>
 
 <!DOCTYPE html>
@@ -32,12 +30,11 @@ extract(pageController());
 </head>
 <body>
 
-
 <h1>Counter = <?= $currentCount ?></h1>
 <form>
 	<label>UP!<input type="submit" name="UP"></label><br>
 	<label>DOWN!<input type="submit" name="DOWN"></label><br>
-	<input type="hidden" name="currentCount" value="<?= $currentCount ?>">
+	<input name="currentCount" value="<?= $currentCount ?>">
 </form>
 </body>
 </html>

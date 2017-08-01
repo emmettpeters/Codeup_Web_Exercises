@@ -9,18 +9,17 @@ function pageController(){
 	$address = "http://codeup.dev/ping.php";
 
 	$hits = $_GET['hits'] ?? 0;
-	var_dump($hits);
 	$misses = $_GET['misses'] ?? 0;
-	var_dump($hits);
-	$missesCount = $_GET['missesCount'] ?? 0;
 
-	if(isset($_GET['hits']) && !isset($_GET['misses'])){
+	if(isset($_GET['hit'])){
 		$hits = up($hits);
 	}
 
-	if(isset($_GET['misses'])){
+	if(isset($_GET['miss'])){
 		$hits = 0;
-		$missesCount = up($missesCount);
+		echo$_GET['misses']++;
+		
+		$address = "failure.html";
 	}
 
 	return ["hits"=>$hits,
@@ -41,11 +40,12 @@ extract(pageController());
 	<h1>PONG</h1>
 	<h3>HITS: <?= $hits ?></h3><br>
 	<form action=<?= $address?>>
-		<button type="submit" value="0">HIT</button><br>
+		<button name="hit"  value="0">HIT</button><br>
 		<input type="hidden" name="hits" value="<?= $hits ?>">
-		<button type="submit" name="misses">MISS</button><br>
-		<input type="hidden" name="missesCount" value="<?= $misses ?>">
-		
+
+		<a href="failure.html"><button name="miss" value="0">MISS</button></a><br>
+		<input type="hidden" name="misses" value="<?= $misses ?>">	 
 	</form>
+	
 </body>
 </html>
