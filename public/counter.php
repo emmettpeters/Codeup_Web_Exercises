@@ -12,13 +12,10 @@ function pageController(){
 
 	$currentCount = $_GET['currentCount'] ?? 0;
 
-
 	if (isset($_GET['UP'])){
 		$currentCount = up($currentCount);
-		var_dump($currentCount);
 	} elseif (isset($_GET['DOWN'])) {
 		$currentCount = down($currentCount);
-		var_dump($currentCount);
 	}
 
 	return ["currentCount" => $currentCount];
@@ -31,7 +28,7 @@ extract(pageController());
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Counter</title>
 </head>
 <body>
 
