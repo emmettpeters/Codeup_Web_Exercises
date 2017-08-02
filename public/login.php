@@ -1,22 +1,27 @@
 <?php
 
 function pageController(){
+	var_dump($_POST);
 	$data = [];
-
+	$data['error'] = "";
 	$username = (isset($_POST['username']) ? $_POST['username'] : "");
 	$password = (isset($_POST['password']) ? $_POST['password'] : "");
 
-	if ($username == "guest" && $password == "password"){
-		header("Location:authorized.php");
-		die();
-	} else {
-		$data['error'] = "INCORRECT UN OR PW!!";
+	if(!empty($_POST)){
+		if ($username == "guest" && $password == "password"){
+			header("Location:authorized.php");
+			die();
+		} else {
+			$data['error'] = "INCORRECT UN OR PW!!";
+		}
+
+		$data['username'] = $username;
+		$data['password'] = $password;
+		return $data;
+
 	}
-
-	$data['username'] = $username;
-	$data['password'] = $password;
-
 	return $data;
+	
 }
 
 extract(pageController());
@@ -36,8 +41,8 @@ extract(pageController());
 	</form>
 
 	<h2><?= $error ?></h2>
-	<h2><?= $username ?></h2>
-	<h2><?= $password ?></h2>
+	<!-- <h2><?= $username ?></h2>
+	<h2><?= $password ?></h2> -->
 
 
 </body>
