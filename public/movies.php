@@ -140,10 +140,10 @@ extract(pageController($allMovies));
         }
 
         body, .movieBox {
-            background-color: #44baff;
+            background-color: #032c44;
         }
 
-        .form {
+        .form, .links{
             display:flex;
             justify-content: space-around;
         }
@@ -152,6 +152,9 @@ extract(pageController($allMovies));
             padding-bottom:2em;
         }
         
+        h3 {
+            margin-top: 0;
+        }
         .container {
             margin:auto;
             
@@ -164,6 +167,7 @@ extract(pageController($allMovies));
             margin-bottom:1em;
             padding-top:1em;
             padding-bottom:1em;
+            color:white;
         }
     </style>
 </head>
@@ -174,16 +178,16 @@ extract(pageController($allMovies));
 
         <section class="form">
             <div class="divider">
-                <h3>Search by Title</h3><br>
+                <h3>Search by Title</h3>
                 <form action="movies.php" method="GET">
-                    <input type="text" name="title" value=""><br>
+                    <input type="text" name="title" value="">
                     <button type="submit">SEARCH!</button>
                 </form>
             </div>
             <div class="divider">
-                <h3>Search by Genre</h3><br>
+                <h3>Search by Genre</h3>
                 <form action="movies.php" method="GET">
-                    <input type="text" name="genre" value=""><br>
+                    <input type="text" name="genre" value="">
                     <input type="submit" value="SEARCH!">
                 </form>
             </div>
