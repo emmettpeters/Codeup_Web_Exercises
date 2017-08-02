@@ -100,7 +100,7 @@ function pageController($allMovies)
         $movies = [];
     
         foreach($allMovies as $movie) {
-            if(strpos( $movie['title'],$title)!== false) {
+            if(stripos( $movie['title'],$title)!== false) {
 
                 $movies[] = $movie;
             }
@@ -117,7 +117,7 @@ function pageController($allMovies)
         $movies = [];
     
         foreach($allMovies as $movie) {
-            if($movie['release'])>2000) {
+            if($movie['release'] > 2000) {
 
                 $movies[] = $movie;
             }
@@ -141,6 +141,31 @@ extract(pageController($allMovies));
 <head>
     <meta charset="utf-8">
     <title></title>
+    <style type="text/css">
+        .form, .links, .movies, h1 {
+            background:lightgreen;
+            text-align:center;
+            width:100%;
+        }
+
+        body {
+            background-color: #44baff;
+        }
+
+        .form {
+            display:flex;
+            justify-content: space-around;
+        }
+        .links {
+            padding-top:2em;
+            padding-bottom:2em;
+        }
+        
+        .container {
+            margin:auto;
+            
+        }
+    </style>
 </head>
 <body>
     <main class="container">
@@ -148,23 +173,28 @@ extract(pageController($allMovies));
         <h1>Welcome to MovieLister!</h1>
 
         <section class="form">
+            <div class="divider">
+                <h3>Search by Title</h3><br>
+                <form action="movies.php" method="GET">
+                    <input type="text" name="title" value=""><br>
+                    <button type="submit">SEARCH!</button>
+                </form>
+            </div>
+            <div class="divider">
                 <h3>Search by Genre</h3><br>
-            <form action="movies" method="GET">
-                <input type="text" name="genre" value=""><br>
-                <button type="submit">SEARCH MOTHAFUCKA!</button>
-            </form>
-            <form action="movies" method="GET">
-                <input type="text" name="genre" value=""><br>
-                <button type="submit">SEARCH MOTHAFUCKA!</button>
-            </form>
+                <form action="movies.php" method="GET">
+                    <input type="text" name="genre" value=""><br>
+                    <input type="submit" value="SEARCH!">
+                </form>
+            </div>
                 <!-- Add an input to search by "title" -->
                 <!-- Add a form that has an input for "genre" -->
                 <!-- Add submit button -->
         </section>
-
+        <br>
         <section class="links">
             <!-- Add a link that will show all movies  -->
-            <a href="movies.php">Show all movies</a>
+            <a href="?">Show all movies</a>
 
             <!-- Add a link that will show only movies with a release date after 2000 -->
             <a href="?release=2000">All movies released after 2000</a>
