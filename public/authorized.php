@@ -15,8 +15,6 @@ function logout(){
 }
 
 
-
-
 function pageController(){
 
 	$data['session'] = $_SESSION;
