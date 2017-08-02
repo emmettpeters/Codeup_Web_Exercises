@@ -1,14 +1,27 @@
 <?php
+session_start();
+
+if(isset($_SESSION['logged_in_user'])){
+	header("Location:authorized.php");
+	die();
+}
 
 function pageController(){
-	var_dump($_POST);
+	
 	$data = [];
 	$data['error'] = "";
 	$username = (isset($_POST['username']) ? $_POST['username'] : "");
 	$password = (isset($_POST['password']) ? $_POST['password'] : "");
 
 	if(!empty($_POST)){
+
 		if ($username == "guest" && $password == "password"){
+
+			
+			$sessionId = session_id();
+			$_SESSION['session_id'] = $sessionId;
+			$_SESSION['logged_in_user']= $username;
+
 			header("Location:authorized.php");
 			die();
 		} else {
