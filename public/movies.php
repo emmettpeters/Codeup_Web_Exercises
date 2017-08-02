@@ -68,17 +68,11 @@ $allMovies = [
 function pageController($allMovies)
 {
     $data = [];
-    var_dump($_GET);
-    
-    // If the $_GET request is empty, show every movie
-    
-    // If $_GET['genre'] holds 'adventure', make $movies hold movies with 'adventure' as a genre.
+    // var_dump($_GET);
+   
 
     if(isset($_GET['genre'])) {
-        // make a new array called $movies
-        // iterate through the allMovies array
-        // if any movie has the genre of sci-fi, push that array onto $movies;
-
+      
         $genre = $_GET['genre'];
         $movies = [];
     
@@ -92,9 +86,7 @@ function pageController($allMovies)
         $data['movies'] = $movies;
         
     } elseif (isset($_GET['title'])) {
-        // make a new array called $movies
-        // iterate through the allMovies array
-        // if any movie has the title of sci-fi, push that array onto $movies;
+   
 
         $title = $_GET['title'];
         $movies = [];
@@ -109,9 +101,6 @@ function pageController($allMovies)
         $data['movies'] = $movies;
         
     } elseif(isset($_GET['release'])) {
-        // make a new array called $movies
-        // iterate through the allMovies array
-        // if any movie has the release of sci-fi, push that array onto $movies;
 
         $release = $_GET['release'];
         $movies = [];
@@ -126,7 +115,7 @@ function pageController($allMovies)
         $data['movies'] = $movies;
         
     } else {
-        // set $data['movies'] to hold all movies (unless another request is made.)
+   
         $data['movies'] = $allMovies;
     }
 
@@ -146,9 +135,11 @@ extract(pageController($allMovies));
             background:lightgreen;
             text-align:center;
             width:100%;
+            padding-top: 1em;
+            padding-bottom:1em;
         }
 
-        body {
+        body, .movieBox {
             background-color: #44baff;
         }
 
@@ -164,6 +155,15 @@ extract(pageController($allMovies));
         .container {
             margin:auto;
             
+        }
+
+        .movieBox {
+            margin-left:30%;
+            margin-right:30%;
+            margin-top:1em;
+            margin-bottom:1em;
+            padding-top:1em;
+            padding-bottom:1em;
         }
     </style>
 </head>
@@ -210,11 +210,11 @@ extract(pageController($allMovies));
             <!-- Show all the movies here -->
             <!-- Iterate through $movies array to show all or the filtered results-->
             <?php foreach($movies as $movie): ?>
-                <div>
-                    <h3>Title: <?= $movie['title'] ?></h3>
-                    <p>Released in: <?= $movie['release'] ?></p>
-                    <p>Genres: <?= implode(", ", $movie['genre']) ?></p>
-                </div>
+                    <div class="movieBox">
+                        <h3>Title: <?= $movie['title'] ?></h3>
+                        <p>Released in: <?= $movie['release'] ?></p>
+                        <p>Genres: <?= implode(", ", $movie['genre']) ?></p>
+                    </div>
             <?php endforeach; ?>
         </section>
     </main>
