@@ -1,6 +1,29 @@
 <?php
 
-function pageController
+require "functions.php";
+
+function pageController(){
+	$data = [];
+	$message = "";
+
+	$username = inputGet('username') ?? "";
+	$password = inputGet('password') ?? "";
+
+	if (($username == "admin") && ($password == "pass")){
+		header("Location:authorizeTWL.php");
+		end();
+	} else {
+		$message = "You do not have proper access rights to login";
+	}
+
+	$data["message"]=$message;
+
+	return $data;
+
+}
+
+extract(pageController());
+
 
 ?>
 <!DOCTYPE html>
@@ -25,7 +48,8 @@ function pageController
 					</h2>
 					<p id="bitcoin">(Bitcoin<sup>TM</sup> capability coming soon!!!)</p>
 						<a id="l4">-------------------------------------------------------------------------</a>
-					<form id="form1" method="POST" action="http://requestb.in/168h09t1">
+						<h3><?= $message ?></h3>
+					<form id="form1" method="POST" action="?">
 						<p>
 							<label for="username"><input type="text" id="username" placeholder="              E-Mail" name="username"><p>------- Username -------</p></label>
 						</p>

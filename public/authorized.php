@@ -1,5 +1,8 @@
 <?php
+
+require "functions.php";
 session_start();
+
 var_dump($_SESSION);
 
 if(!isset($_SESSION['logged_in_user'])){
@@ -19,11 +22,12 @@ function pageController(){
 
 	$data['session'] = $_SESSION;
 
-	if (isset($_POST['logout'])){
+	if (inputHas('logout')){
+		
 		logout();
 
 		header("Location:login.php");
-
+		die();
 	} 
 	
 	return $data;

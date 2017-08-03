@@ -16,7 +16,6 @@ function pageController(){
 	if(inputHas('hit')){
 		$hits = up($hits);
 	}
-
 	if(inputHas('miss')){
 		$hits = 0;
 		header("Location:failure.html");
@@ -24,14 +23,11 @@ function pageController(){
 		
 		$address = "failure.html";
 	}
-
 	return ["hits"=>$hits,
 	"misses"=>$misses,
 	"address"=>$address];
 }
-
 extract(pageController());
-
 ?>
 
 <!DOCTYPE html>

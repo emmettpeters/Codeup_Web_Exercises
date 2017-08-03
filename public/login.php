@@ -1,4 +1,6 @@
 <?php
+
+require "functions.php";
 session_start();
 
 if(isset($_SESSION['logged_in_user'])){
@@ -10,8 +12,8 @@ function pageController(){
 	
 	$data = [];
 	$data['error'] = "";
-	$username = (isset($_POST['username']) ? $_POST['username'] : "");
-	$password = (isset($_POST['password']) ? $_POST['password'] : "");
+	$username = inputGet('username') ?? "";
+	$password = inputGet('password') ?? "";
 
 	if(!empty($_POST)){
 
