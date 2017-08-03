@@ -1,5 +1,6 @@
 <?php
 
+require "functions.php";
 
 $allMovies = [
     [
@@ -69,53 +70,47 @@ function pageController($allMovies)
 {
     $data = [];
     // var_dump($_GET);
-   
+    $genre = inputGet('genre');
+    $title = inputGet('title');
+    $release = inputGet('release');
 
-    if(isset($_GET['genre'])) {
-      
-        $genre = $_GET['genre'];
+    if(inputHas('release')) {
         $movies = [];
-    
-        foreach($allMovies as $movie) {
-            if(in_array($genre, $movie['genre'])) {
-
-                $movies[] = $movie;
-            }
-        }        
-
-        $data['movies'] = $movies;
-        
-    } elseif (isset($_GET['title'])) {
-   
-
-        $title = $_GET['title'];
-        $movies = [];
-    
-        foreach($allMovies as $movie) {
-            if(stripos( $movie['title'],$title)!== false) {
-
-                $movies[] = $movie;
-            }
-        }        
-
-        $data['movies'] = $movies;
-        
-    } elseif(isset($_GET['release'])) {
-
-        $release = $_GET['release'];
-        $movies = [];
-    
         foreach($allMovies as $movie) {
             if($movie['release'] > 2000) {
-
                 $movies[] = $movie;
             }
         }        
+        $data['movies'] = $movies;
+        return $data;
+    } 
 
+    if(!empty($genre) and empty($title)) {   
+        $movies = [];
+        foreach($allMovies as $movie) {
+            if(in_array($genre, $movie['genre'])) {
+                $movies[] = $movie;
+            }
+        }       
         $data['movies'] = $movies;
         
-    } else {
-   
+    } elseif (!empty($title) and empty($genre)) {
+        $movies = [];
+        foreach($allMovies as $movie) {
+            if(stripos($movie['title'],$title)!== false) {
+                $movies[] = $movie;
+            }
+        }        
+        $data['movies'] = $movies;
+    } elseif (!empty($title) and !empty($genre)) {
+        $movies = [];
+        foreach($allMovies as $movie) {
+            if((stripos($movie['title'],$title)!== false) and (in_array($genre, $movie['genre']))){
+                $movies[] = $movie;
+            }
+        }        
+        $data['movies'] = $movies;      
+    } else {  
         $data['movies'] = $allMovies;
     }
 
@@ -182,11 +177,11 @@ extract(pageController($allMovies));
                 <form action="movies.php" method="GET">
                     <input type="text" name="title" value="">
                     <button type="submit">SEARCH!</button>
-                </form>
+                <!-- </form> -->
             </div>
             <div class="divider">
                 <h3>Search by Genre</h3>
-                <form action="movies.php" method="GET">
+                <!-- <form action="movies.php" method="GET"> -->
                     <input type="text" name="genre" value="">
                     <input type="submit" value="SEARCH!">
                 </form>
