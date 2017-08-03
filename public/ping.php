@@ -1,5 +1,7 @@
 <?php
 
+require "functions.php";
+
 function up($value){
 	return $value + 1;
 }
@@ -8,16 +10,17 @@ function pageController(){
 
 	$address = "http://codeup.dev/pong.php";
 	
-	$hits = $_GET['hits'] ?? 0;
-	$misses = $_GET['misses'] ?? 0;
+	$hits = inputGet('hits') ?? 0;
+	$misses = inputGet('misses') ?? 0;
 
-	if(isset($_GET['hit'])){
+	if(inputHas('hit')){
 		$hits = up($hits);
 	}
 
-	if(isset($_GET['miss'])){
+	if(inputHas('miss')){
 		$hits = 0;
-		echo $_GET['misses']++;
+		header("Location:failure.html");
+		die();
 		
 		$address = "failure.html";
 	}
@@ -40,11 +43,6 @@ extract(pageController());
 	<h1>PING</h1>
 	<h3>HITS: <?= $hits ?></h3><br>
 	<form action=<?= $address?>>
-
-
-
-
-
 		<button name="hit"  value="0">HIT</button><br>
 		<input type="hidden" name="hits" value="<?= $hits ?>">
 		<input type="hidden" name="misses" value="<?= $misses ?>">	 
