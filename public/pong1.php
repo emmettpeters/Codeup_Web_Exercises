@@ -1,12 +1,12 @@
 <?php
 
-function pageController() {
+require "functions.php";
 
-if (isset($_GET['count'])){
-    if ($_GET['event'] == 'hit') {
-        $var = $_GET['count'] + 1;
-        echo $_GET['event'];
-    }
+function pageController() {
+var_dump(inputGet('count'));
+if (inputHas('count') && inputHas('event')){
+        $var = inputGet('count') + 1;
+        echo inputGet('event');
 } else {
     $var = 0;
 }
