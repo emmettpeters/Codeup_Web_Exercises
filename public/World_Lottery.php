@@ -1,22 +1,43 @@
 <?php
 
 require "functions.php";
+require "User.php";
 
 function pageController(){
 	$data = [];
 	$message = "";
 
-	$username = inputGet('username') ?? "";
-	$password = inputGet('password') ?? "";
+	if(!empty($_POST) && (inputGet('username') === "") || (inputGet('password') === "") || (inputGet('email') === "")){
+		$data['message'] = "username, password and email are required to register";
+		return $data;
+	} else if (inputGet('username') !== "") || (inputGet('password') !== "") || (inputGet('email') !== "")){
 
-	if (($username == "admin") && ($password == "pass")){
-		header("Location:authorizeTWL.php");
-		end();
-	} else {
-		$message = "You do not have proper access rights to login";
 	}
 
-	$data["message"]=$message;
+
+
+
+
+
+	// if(filter_var(inputGet('email'), FILTER_VALIDATE_EMAIL) && (inputHas('email'))){
+	// 	$email = inputGet('email');
+	// } elseif(!inputHas('email')) {
+	// 	$data['message']="";
+	// } else {
+	// 	 $data['message'] = "That is not a valid email";
+	// }
+
+	// $username = inputGet('username') ?? "";
+	// $password = inputGet('password') ?? "";
+
+	// if (($username == "admin") && ($password == "pass") && ($email == "ejp8611@gmail.com")){
+	// 	header("Location:authorizeTWL.php");
+	// 	end();
+	// } else {
+	// 	$message = "You do not have proper access rights to login";
+	// }
+
+	$data["message"] = $message;
 
 	return $data;
 
@@ -51,10 +72,13 @@ extract(pageController());
 						<h3><?= $message ?></h3>
 					<form id="form1" method="POST" action="?">
 						<p>
-							<label for="username"><input type="text" id="username" placeholder="              E-Mail" name="username"><p>------- Username -------</p></label>
+							<label for="username"><input type="text" id="username" placeholder="          USERNAME" name="username"><p>------- Username -------</p></label>
 						</p>
 						<p>
 							<label for="password"><input type="password" id="password" placeholder="                PW" name="password"><p>------- Password -------</p></label>
+						</p>
+						<p>
+							<label for="email"><input type="email" id="email" placeholder="               EMAIL" name="email"><p>------- Email -------</p></label>
 						</p>
 						<p>
 							<button id="createacct" type="submit">Creat account / Sign In</button>
