@@ -1,48 +1,57 @@
 <?php
 
-require "functions.php";
-
-function up($value){
-	return $value + 1;
-}
+require_once "../Input.php";
 
 function pageController(){
 
-	$address = "http://codeup.dev/ping.php";
-
-	$hits = inputGet('hits') ?? 0;
-	$misses = inputGet('misses') ?? 0;
-
-	if(inputHas('hit')){
-		$hits = up($hits);
+	if (Input::has("was")){
+	    if(Input::get("was") == "hit"){
+	        $number = Input::get("count") + 1;
+	        $gameOver = null;
+	    } else if (Input::get("was") == "miss"){
+	        $gameOver = "GAME OVER YOU MISSED!!!";
+	        $number = 0;
+		} 
+	} else {
+	    $number = 0;
+	    $gameOver = null;
 	}
-	if(inputHas('miss')){
-		$hits = 0;
-		header("Location:failure.html");
-		die();
-		
-		$address = "failure.html";
-	}
-	return ["hits"=>$hits,
-	"misses"=>$misses,
-	"address"=>$address];
+
+$counter = ['counter' => $number, 'gameOver' => $gameOver];
+
+return $counter;
+
 }
+
 extract(pageController());
+
+
 ?>
+
+
 
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Pong</title>
+    <title>Ping</title>
 </head>
 <body>
-	<h1>PONG</h1>
-	<h3>HITS: <?= $hits ?></h3><br>
-	<form action=<?= $address?>>
-		<button name="hit"  value="0">HIT</button><br>
-		<input type="hidden" name="hits" value="<?= $hits ?>">
-		<a href="failure.html"><button name="miss" value="0">MISS</button></a><br>
-		<input type="hidden" name="misses" value="<?= $misses ?>">	 
-	</form>	
+
+<h1>PING</h1>
+<h1> <?=$gameOver ?></h1>
+
+<h1>Counter <?= $counter  ?> </h1>
+
+<a href="ping.php?count=<?=$counter?>&was=hit">HIT </A>
+
+<br>
+
+<a href="ping.php?count=<?=$counter?>&was=miss&end=<?=$gameOver?>">MISS </A>
+
+<br>
+
+<a href="ping.php">Reset </A>
+
+
 </body>
 </html>

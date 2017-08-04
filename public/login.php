@@ -1,5 +1,7 @@
 <?php
 
+require "../Input.php";
+require_once "../Auth.php";
 require "functions.php";
 session_start();
 
@@ -12,12 +14,12 @@ function pageController(){
 	
 	$data = [];
 	$data['error'] = "";
-	$username = inputGet('username') ?? "";
-	$password = inputGet('password') ?? "";
+	$username = Input::get('username') ?? "";
+	$password = Input::get('password') ?? "";
 
 	if(!empty($_POST)){
 
-		if ($username == "guest" && $password == "password"){
+		if (Auth::attempt($username,$password)){
 
 			
 			$sessionId = session_id();

@@ -1,5 +1,6 @@
 <?php
-
+require "../Input.php";
+require_once "../Auth.php";
 require "functions.php";
 session_start();
 
@@ -22,16 +23,14 @@ function pageController(){
 
 	$data['session'] = $_SESSION;
 
-	if (inputHas('logout')){
+	if (Input::get('logout')){
 		
 		logout();
 
 		header("Location:login.php");
 		die();
-	} 
-	
+	} 	
 	return $data;
-
 }
 
 extract(pageController());

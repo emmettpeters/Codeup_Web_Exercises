@@ -1,5 +1,11 @@
 <?php
 
+function append($filename,$stringToWrite){
+	$handle = fopen($filename, "a");
+	fwrite($handle,$stringToWrite);
+	fclose($handle);
+}
+
 function safe($string){
 	return htmlspecialchars(strip_tags($string));
 }
@@ -9,8 +15,7 @@ function inputHas($key){
 }
 
 //value at key
-
-function inputGet($key, $default =""){
+function inputGet($key, $default = 0){
 	if (inputHas($key)){
 		return $_REQUEST[$key];
 	} else {
@@ -19,7 +24,6 @@ function inputGet($key, $default =""){
 }
 
 //escape hacker input
-
 function escape($input){
 	if(!is_string($input)){
 		return false;
