@@ -6,10 +6,12 @@ session_start();
 
 var_dump($_SESSION);
 
-if(!isset($_SESSION['logged_in_user'])){
+if(!Auth::check()){
 	header("Location:login.php");
 	die();
 }
+
+$data['username']= Auth::user();
 
 function logout(){
 	session_unset();
@@ -18,15 +20,12 @@ function logout(){
 	session_start();
 }
 
-
 function pageController(){
-
 	$data['session'] = $_SESSION;
 
-	if (Input::get('logout')){
-		
-		logout();
-
+	if (Input::get('logout'))
+	{	
+		Auth::logout();
 		header("Location:login.php");
 		die();
 	} 	

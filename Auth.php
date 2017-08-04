@@ -1,5 +1,7 @@
 <?php
 
+require_once "Log.php";
+
 /**
  * A utility class for handling common authorization tasks
  */
@@ -24,10 +26,16 @@ class Auth
      * @param string $password the password to check
      */
     public static function attempt($username, $password)
-    {
+    {  
+        $log = new Log();
         if($username == self::$username && password_verify($password,self::$password))
         {
+            $_SESSION['logged-in-user']=$username;
+            $log->info("$username logged in!");
             return true;
+        } else {
+            $log->error("$username failed to login!");
+            return false;
         }
         // TODO: check if the passed username matches the static username
         //       property
@@ -47,6 +55,7 @@ class Auth
      */
     public static function check()
     {
+        return isset($_SESSION['logged-in-user']);
         // TODO: return a boolean value based on whether or not the
         //       'LOGGED_IN_USER' key is present in the session
     }
@@ -58,6 +67,11 @@ class Auth
      */
     public static function user()
     {
+        if(isset($_SESSION['logged-in-user'])){
+            return $_SESSION[logged-in-user];
+        } else {
+            return null;
+        }
         // TODO: return the value associated with the 'LOGGED_IN_USER' key in
         //       the session, or null if it is not set
     }
@@ -67,6 +81,10 @@ class Auth
      */
     public static function logout()
     {
+        session_unset();
+        session_regenerate_id(true);
+        session_destroy();
+        session_start();
         // TODO: destroy and re-create the session
     }
 }
