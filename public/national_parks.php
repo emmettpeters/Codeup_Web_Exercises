@@ -4,31 +4,36 @@ require_once "../park_logins.php";
 require_once __DIR__ . '/../db_connect.php';
 require_once __DIR__ . "/../Input.php";
 
-function pageController($dbc){
-	$data=[];
+function pageController($dbc) {
+    if (!Input::has('view')){
+       $key = 0;
+    }
+    else {
+        if(is_numeric(Input::get('view'))){
+            $key = Input::get('view');
+        }
+        else $key = 0;
+    }
+    $stmt = $dbc->query("SELECT * FROM national_parks");
 
-if (!empty($_REQUEST)) {
- 
- 		$first5 = 'SELECT * FROM national_parks limit 5';
- 		$second5 = 'SELECT * FROM  national_parks limit 5 offset 5';
- 
- 		$request = Input::get('view');
- 
- 		$query = ($request == 'first5') ? $first5 : $second5;
- 
- 		$stmt = $dbc->query($query);
+    $rows = array();
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        $rows[] = $row;
+    }
+    $final = end($rows)['id']-1;
 
- 		// var_dump($stmt->fetchAll(PDO::FETCH_NUM));
- 		$data['results'] = $stmt->fetchAll(PDO::FETCH_NUM);
- 	} else {
- 		$data = ['results' => ''];
- 	}
- 
- 	return $data;
+    $stmt = $dbc->query("SELECT * FROM national_parks LIMIT 4 OFFSET $key");
 
+   	$rows = array();
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        $rows[] = $row;
+    }
+    return ['key' => $key,
+    'rows' => $rows,
+    'final'=>$final];
 }
-
 extract(pageController($dbc));
+
 
 ?>
 <!DOCTYPE html>
@@ -59,7 +64,7 @@ extract(pageController($dbc));
  <main class="container">   
 	<h1 class="jumbotron">National Parks</h1>
 	<br>
-	<?php if ($results !== '') : ?>
+	<?php if ($rows !== '') : ?>
 		<table class="table">
 			<tr>
 				<th>Name</th>
@@ -67,26 +72,42 @@ extract(pageController($dbc));
 				<th>Date Established</th>
 				<th>Area In Acres</th>
 			</tr>	
-		<?php foreach ($results as $result): ?>
+		<?php foreach ($rows as $row): ?>
 			<tr>	
 				<?php //var_dump($result) ?>	
-				<td><?= $result[1] ?></td>
-				<td><?= $result[2] ?></td>
-				<td><?= $result[3] ?></td>
-				<td><?= $result[4] ?></td>
+				<td><?= $row['name'] ?></td>
+				<td><?= $row['location'] ?></td>
+				<td><?= $row['date_established'] ?></td>
+				<td><?= $row['area_in_acres'] ?></td>
 			</tr>
 		<?php endforeach ?>
 		</table>
 
 	<?php endif ?>
  
-	<a class="btn btn-primary" href="?view=first5">First 5</a>
-	<a class="btn btn-secondary" href="?view=second5">Second 5</a>
+	<a id="prev" class="btn btn-primary" href="?view=<?= $key - 4?>">Previous</a>
+	<a id="next" class="btn btn-secondary" href="?view=<?= $key + 4?>">Next</a>
 
      </main>
      
      <!-- jQuery Version 2.2.4 -->
      <script src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
+     <script type="text/javascript">
+     	$curr = "<?= Input::get('view')?>";
+     	$last = "<?= $final ?>";
+     	console.log($curr);
+     	if ($curr >= 56){
+     		$('#next').hide();
+     	} else {
+     		$('#next').show();
+     	}
+
+     	if ($curr <= 3){
+     		$('#prev').hide();
+     	} else {
+     		$('#prev').show();
+     	}
+     </script>
  
      <!-- Bootstrap JS -->
      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
