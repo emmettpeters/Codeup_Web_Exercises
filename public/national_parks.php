@@ -15,7 +15,7 @@ function pageController($dbc) {
         else $key = 0;
     }
     $stmt = $dbc->query("SELECT * FROM national_parks");
-
+    var_dump($stmt);
     $rows = array();
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         $rows[] = $row;
