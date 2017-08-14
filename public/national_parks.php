@@ -3,18 +3,20 @@
 require_once "../park_logins.php";
 require_once __DIR__ . '/../db_connect.php';
 require_once __DIR__ . "/../Input.php";
+require_once "../Park.php";
 
 function pageController($dbc) {
-if(Input::has("name") && Input::has("location") && Input::has("date") && Input::has("area")){
-    $name = Input::get('name');
-    $date = Input::get('date');
-    $location = Input::get('location');
-    $area = Input::get('area');
 
-    $query = "INSERT INTO national_parks (name,location,date_established,area_in_acres)
-        VALUES(?,?,?,?)";
-    $stmt = $dbc->prepare($query);
-    $stmt->execute(array($name,$location,$date,$area));
+    if(!empty(Input::get("name")) && !empty(Input::get("location")) && !empty(Input::get("date")) && !empty(Input::get("area"))){
+
+    $newPark = new Park();
+
+        $newPark->name = Input::get('name');
+        $newPark->dateEstablished = Input::get('date');
+        $newPark->location = Input::get('location');
+        $newPark->areaInAcres = Input::get('area');
+        $newPark->description = Input::get('description');
+        $newPark->insert();
     }
 
 
@@ -36,10 +38,6 @@ if(Input::has("name") && Input::has("location") && Input::has("date") && Input::
 
     $stmt = $dbc->query("SELECT * FROM national_parks LIMIT 4 OFFSET $key");
 
-   	$rows = array();
-    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-        $rows[] = $row;
-    }
     return ['key' => $key,
     'rows' => $rows,
     'final'=>$final];
@@ -81,6 +79,7 @@ extract(pageController($dbc));
         <label>Date Established: <input id="date" name="date"></label>
         <label>Location: <input id="location" name="location"></label>
         <label>Area in Acres: <input id="area" name="area"></label>
+        <label>Description: <input id="description" name="description"></label>
         <button type="submit">Add Park</button>
     </form>
 	<?php if ($rows !== '') : ?>
@@ -115,7 +114,7 @@ extract(pageController($dbc));
      	$curr = "<?= Input::get('view')?>";
      	$last = "<?= $final ?>";
      	console.log($curr);
-     	if ($curr >= $last){
+     	if ($curr > $last -3){
      		$('#next').hide();
      	} else {
      		$('#next').show();

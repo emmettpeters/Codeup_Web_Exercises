@@ -3,9 +3,9 @@
 require_once "park_logins.php";
 require_once "db_connect.php";
 
-// $statement = "DROP TABLE IF EXISTS national_parks";
+$statement = "DROP TABLE IF EXISTS national_parks";
 
-// $dbc->exec($statement);
+$dbc->exec($statement);
 
 $statement = "CREATE TABLE IF NOT EXISTS national_parks (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -13,16 +13,10 @@ $statement = "CREATE TABLE IF NOT EXISTS national_parks (
     location VARCHAR(128),
     date_established DATE,
     area_in_acres DOUBLE,
-    description VARCHAR(128),
+    description TEXT(128),
     PRIMARY KEY (id)
     );
 ";
 
 $dbc->exec($statement);
 
-
-$query = 'INSERT INTO users (email, name) VALUES (?, ?)';
-
-$stmt = $dbc->prepare($query);
-
-$stmt->execute(array('ben@codeup.com', 'Ben Batschelet'));
