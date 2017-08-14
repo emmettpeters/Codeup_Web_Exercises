@@ -5,10 +5,22 @@ require_once __DIR__ . '/../db_connect.php';
 require_once __DIR__ . "/../Input.php";
 
 function pageController($dbc) {
+if(Input::has("name") && Input::has("location") && Input::has("date") && Input::has("area")){
+    $name = Input::get('name');
+    $date = Input::get('date');
+    $location = Input::get('location');
+    $area = Input::get('area');
+
+    $query = "INSERT INTO national_parks (name,location,date_established,area_in_acres)
+        VALUES(?,?,?,?)";
+    $stmt = $dbc->prepare($query);
+    $stmt->execute(array($name,$location,$date,$area));
+    }
+
+
     if (!Input::has('view')){
        $key = 0;
-    }
-    else {
+    } else {
         if(is_numeric(Input::get('view'))){
             $key = Input::get('view');
         }
@@ -64,6 +76,13 @@ extract(pageController($dbc));
  <main class="container">   
 	<h1 class="jumbotron">National Parks</h1>
 	<br>
+    <form>
+        <label>Name: <input id="name" name="name"></label>
+        <label>Date Established: <input id="date" name="date"></label>
+        <label>Location: <input id="location" name="location"></label>
+        <label>Area in Acres: <input id="area" name="area"></label>
+        <button type="submit">Add Park</button>
+    </form>
 	<?php if ($rows !== '') : ?>
 		<table class="table">
 			<tr>
@@ -96,7 +115,7 @@ extract(pageController($dbc));
      	$curr = "<?= Input::get('view')?>";
      	$last = "<?= $final ?>";
      	console.log($curr);
-     	if ($curr >= 56){
+     	if ($curr >= $last){
      		$('#next').hide();
      	} else {
      		$('#next').show();

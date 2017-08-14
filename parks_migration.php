@@ -19,3 +19,10 @@ $statement = "CREATE TABLE IF NOT EXISTS national_parks (
 ";
 
 $dbc->exec($statement);
+
+
+$query = 'INSERT INTO users (email, name) VALUES (?, ?)';
+
+$stmt = $dbc->prepare($query);
+
+$stmt->execute(array('ben@codeup.com', 'Ben Batschelet'));
