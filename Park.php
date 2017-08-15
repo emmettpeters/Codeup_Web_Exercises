@@ -75,8 +75,10 @@ class Park
         self::dbConnect();
         $allQuery = "SELECT * FROM national_parks";
         $stmt = self::$dbc->query($allQuery);
-        $allParks = $stmt->fetchAll(PDO::FETCH_OBJ);
+        $allParks = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $allParks;
+
+
 
         // TODO: call dbConnect to ensure we have a database connection
         // TODO: use the $dbc static property to query the database for all the
@@ -92,11 +94,20 @@ class Park
     public static function paginate($pageNo, $resultsPerPage = 4) {
 
         self::dbConnect();
-        $stmt = self::$dbc->prepare('SELECT * FROM national_parks LIMIT :pageNo OFFSET :resultsPerPage');
-        $stmt->bindValue(':resultsPerPage', $resultsPerPage, PDO::PARAM_INT);
-        $stmt->bindValue(':pageNo',  $pageNo,  PDO::PARAM_INT);
-        $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_OBJ);
+        $limit = $resultsPerPage ;
+        $offset = ($pageNo * $resultsPerPage) - $resultsPerPage;
+
+        $paginationQuery = "SELECT * FROM national_parks ORDER BY name Limit :limit OFFSET :offset";
+
+        $preparedStmt = self::$dbc->prepaer($paginationQuery);
+        $preparedStmt->bindValue(":limit", (int) $limit,PDO::PARAM_INT);
+        $preparedStmt->bindValue(":offset", (int) $offset,PDO::PARAM_INT);
+
+        $preparedStmt->execute();
+
+        $paginatedParks = $preparedStmt->fetchAll(PDO::FETCH_OBJ);
+        return $paginatedParks;
+
 
         // TODO: call dbConnect to ensure we have a database connection
         // TODO: calculate the limit and offset needed based on the passed
@@ -129,6 +140,8 @@ class Park
         $stmt = self::$dbc->prepare($query);
 
         $stmt->execute(array("{$this->name}", "{$this->location}", "{$this->dateEstablished}", "{$this->areaInAcres}", "{$this->description}"));
+
+        $this->id = self::$dbc->lastInsertId();
         // TODO: call dbConnect to ensure we have a database connection
         // TODO: use the $dbc static property to create a perpared statement for
         //       inserting a record into the parks table

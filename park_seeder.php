@@ -2,6 +2,7 @@
 
 require_once "park_logins.php";
 require_once "db_connect.php";
+require_once "Park.php";
 
 $dbc->exec("TRUNCATE national_parks");
 // get the contents of the CSV as a string
@@ -15,7 +16,11 @@ $parks = array_map('trim', $parks);
 
 foreach($parks as $park) {
     $park = explode(",", $park);
-    $query = "INSERT INTO national_parks (name, location, date_established, area_in_acres, description) VALUES (?,?,?,?,?)";
-    $stmt = $dbc->prepare($query);
-	$stmt->execute(array("{$park[0]}", "{$park[1]}", "{$park[2]}", "{$park[3]}", "{$park[4]}"));
+    $newPark = new Park();
+	$newPark->name = $park[0];
+	$newPark->location = $park[1];
+	$newPark->dateEstablished = $park[2];
+	$newPark->areaInAcres = $park[3];
+	$newPark->description = $park[4];
+	$newPark->insert();
 }
