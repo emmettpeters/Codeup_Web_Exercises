@@ -4,7 +4,7 @@ require_once "park_logins.php";
 require_once "db_connect.php";
 require_once "Park.php";
 
-$dbc->exec("TRUNCATE national_parks");
+$connection->exec("TRUNCATE national_parks");
 // get the contents of the CSV as a string
 $contents = file_get_contents('national_parks.csv');
 // get an array of all the rows

@@ -1,5 +1,4 @@
 <?php
-
 class Input
 {
     /**
@@ -10,10 +9,9 @@ class Input
      */
     public static function has($key)
     {
-        return isset($_REQUEST[$key]);
-        // TODO: Fill in this function
+        $result = isset($_REQUEST[$key]) ? true : false;
+        return $result;
     }
-
     /**
      * Get a requested value from either $_POST or $_GET
      *
@@ -21,17 +19,15 @@ class Input
      * @param mixed $default default value to return if key not found
      * @return mixed value passed in request
      */
-
-    public static function get($key, $default = 0)
+    public static function get($key, $default = null)
     {
-        if (self::has($key)){
-            return $_REQUEST[$key];
-        } else {
-            return $default;
-        }
-        // TODO: Fill in this function
+        $result = (self::has($key)) ? $_REQUEST[$key] : $default;
+        return $result;
     }
-
+    public static function escape($input)
+    {
+        return htmlspecialchars(strip_tags($input));
+    }
     ///////////////////////////////////////////////////////////////////////////
     //                      DO NOT EDIT ANYTHING BELOW!!                     //
     // The Input class should not ever be instantiated, so we prevent the    //
