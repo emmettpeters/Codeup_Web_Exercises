@@ -8,7 +8,7 @@ require_once "park_logins.php";
  *
  * Usage Examples
  *
- * Retrieve a list of parks and display some values for each record
+ * Retrieve a lisamp'it of parks and display some values for each record
  *
  *      $parks = Park::all();
  *      foreach($parks as $park) {

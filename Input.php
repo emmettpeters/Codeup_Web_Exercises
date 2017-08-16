@@ -24,9 +24,25 @@ class Input
         $result = (self::has($key)) ? $_REQUEST[$key] : $default;
         return $result;
     }
+
     public static function escape($input)
     {
         return htmlspecialchars(strip_tags($input));
+    }
+
+    public static function getString($key){
+        if(empty($this->get($key)){
+            throw new Exception('get request was empty');
+        } else {
+            return $this->get($key);
+        }    
+    }
+
+    public static function getNumber($key){
+        if(empty($this->get($key)){
+            throw new Exception('number was empty');
+        }
+        return $key;
     }
     ///////////////////////////////////////////////////////////////////////////
     //                      DO NOT EDIT ANYTHING BELOW!!                     //

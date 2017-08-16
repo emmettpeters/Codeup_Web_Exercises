@@ -4,8 +4,18 @@ require "library.php";
 
 class Log
 {
-	public $filename;
-	public $handle;
+	private $filename;
+	private $handle;
+
+	public function setFilename($filename)
+    {
+        $this->filename = touch(is_writeable($filename));
+    }
+
+    public function setHandle($handle)
+    {
+        $this->handle = trim($handle);
+    }
 
 	public function __construct($prefix = "log"){
 		$this->filename = $prefix. "-" . date("Y-m-d") . ".log";
@@ -19,7 +29,7 @@ class Log
 		$this->logMessage("ERROR",$message);
 	}
 
-	public function logMessage($logLevel,$message){
+	protected function logMessage($logLevel,$message){
 		$message = date("h:i:s ") . "[$logLevel]". $message . PHP_EOL;
 		$this->handle = fopen($this->filename, "a");
 		fwrite($this->handle,$message);
