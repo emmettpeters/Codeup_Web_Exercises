@@ -31,18 +31,37 @@ class Input
     }
 
     public static function getString($key){
-        if(empty($this->get($key)){
-            throw new Exception('get request was empty');
-        } else {
-            return $this->get($key);
-        }    
+        $input = self::get($key);
+        if (!is_string($input)){
+            throw new Exception("must be a string bro!");
+        } else if (is_numeric($input)){
+            throw new Exception("cannot be numeric");
+        } else if (empty($input)){
+            throw new Exception("cannot be empty");
+        }
+        return $input; 
     }
 
     public static function getNumber($key){
-        if(empty($this->get($key)){
-            throw new Exception('number was empty');
+        $input = self::get($key);
+        if (!is_numeric($input)){
+            throw new Exception("must be a number bro!");
+        }  else if (empty($input)){
+            throw new Exception("cannot be empty");
         }
-        return $key;
+        return $input; 
+    }
+
+    public static function ($key){
+        $input = self::get($key);
+        if (!is_numeric(strtotime($input))){
+            throw new Exception("must be a valid date");
+        } else {
+            $date = new DateTime();
+            $date->setTimestamp(strtotime($input));
+            $date->setTimezone(new DateTimeZone('America/Chicago'));
+        }
+        return $date;
     }
     ///////////////////////////////////////////////////////////////////////////
     //                      DO NOT EDIT ANYTHING BELOW!!                     //
